@@ -86,7 +86,8 @@
         // --- CHARGEMENT DU WIDGET "MES DERNIÈRES COURSES" ---
         fetch('courses.json')
             .then(reponse => reponse.json())
-            .then(courses => {
+            .then(data => {
+                const courses = data.liste_courses; // <-- ON OUVRE LE TIROIR ICI
                 const widgetConteneur = document.getElementById('widget-courses');
                 
                 // On prend simplement les 2 dernières courses du fichier, sans filtrer
@@ -116,7 +117,8 @@
 
         fetch('articles.json')
             .then(reponse => reponse.json())
-            .then(articles => {
+            .then(data => {
+                const articles = data.liste_articles; // <-- ON OUVRE LE TIROIR ICI
                 const conteneur = document.getElementById('conteneur-articles');
                 let htmlCartes = ''; // On prépare une boîte vide pour le HTML
 

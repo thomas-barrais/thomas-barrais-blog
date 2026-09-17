@@ -1,4 +1,5 @@
-[
+{
+    "liste_courses": [
     { "date": "24/05/2026", "nom": "Trail Thoiry tiocan", "chrono": "1:09:56", "distance": 10.72, "denivele": 487 },
     { "date": "09/05/2026", "nom": "10km Genève", "chrono": "0:43:13", "distance": 10, "denivele": 68, "article": "cr-10km-geneve-2026" },
     { "date": "07/05/2026", "nom": "CERN RELAY RACE", "chrono": "0:03:22", "distance": 0.97, "denivele": 11 },
@@ -25,3 +26,4 @@
     { "date": "12/04/2022", "nom": "3000m piste", "chrono": "0:12:10", "distance": 3, "denivele": 0 },
     { "date": "26/09/2021", "nom": "Semi marathon des écluses", "chrono": "1:54:45", "distance": 21.1, "denivele": 6 }
 ]
+}

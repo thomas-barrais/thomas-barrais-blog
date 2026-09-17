@@ -55,7 +55,8 @@
 
         fetch('articles.json')
             .then(reponse => reponse.json())
-            .then(articles => {
+            .then(data => {
+                const articles = data.liste_articles; // <-- On ouvre le tiroir des articles
                 const monArticle = articles.find(a => a.id === identifiant);
                 
                 if (monArticle) {

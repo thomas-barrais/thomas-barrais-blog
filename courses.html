@@ -116,7 +116,8 @@
 
         fetch('courses.json')
             .then(reponse => reponse.json())
-            .then(courses => {
+            .then(data => {
+                const courses = data.liste_courses; // <-- On ouvre le tiroir des courses
                 
                 // --- 1. TABLEAU COMPLET (HISTORIQUE) ---
                 const tbodyComplet = document.getElementById('tableau-complet');
@@ -269,7 +270,7 @@
             hamburgerBtn.addEventListener('click', () => {
                 navMenu.classList.toggle('active');
             });
-        }s
+        }
     </script>
 </body>
 </html>
