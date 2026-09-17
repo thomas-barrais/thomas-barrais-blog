@@ -22,7 +22,7 @@ collections:
               - {label: "Date", name: "date", widget: "string"}
               - {label: "Résumé", name: "resume", widget: "text"}
               - {label: "Image", name: "image", widget: "image"}
-              - {label: "Contenu (HTML)", name: "contenu", widget: "code", default_language: "html"}
+              - {label: "Contenu (HTML)", name: "contenu", widget: "text"}
 
       - label: "Mes Courses"
         name: "courses"
