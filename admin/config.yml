@@ -1,0 +1,47 @@
+backend:
+  name: git-gateway
+  branch: main 
+
+media_folder: "images"
+public_folder: "images"
+
+collections:
+  - name: "donnees_site"
+    label: "Gestion du Blog"
+    files:
+      - label: "Mes Comptes-Rendus"
+        name: "articles"
+        file: "articles.json"
+        fields:
+          - label: "Articles"
+            name: "liste_articles"
+            widget: "list"
+            fields:
+              - {label: "ID de l'article", name: "id", widget: "string"}
+              - {label: "Titre", name: "titre", widget: "string"}
+              - {label: "Date", name: "date", widget: "string"}
+              - {label: "Résumé", name: "resume", widget: "text"}
+              - {label: "Image", name: "image", widget: "image"}
+              - {label: "Contenu (HTML)", name: "contenu", widget: "code", default_language: "html"}
+
+      - label: "Mes Courses"
+        name: "courses"
+        file: "courses.json"
+        fields:
+          - label: "Courses"
+            name: "liste_courses"
+            widget: "list"
+            fields:
+              - {label: "Date", name: "date", widget: "string"}
+              - {label: "Nom de la course", name: "nom", widget: "string"}
+              - {label: "Distance (km)", name: "distance", widget: "number", value_type: "float"}
+              - {label: "Dénivelé (m)", name: "denivele", widget: "number"}
+              - {label: "Chrono", name: "chrono", widget: "string"}
+              - label: "Article Lié"
+                name: "article"
+                widget: "relation"
+                collection: "donnees_site"
+                file: "articles"
+                search_fields: ["liste_articles.*.titre"]
+                display_fields: ["liste_articles.*.titre"]
+                value_field: "liste_articles.*.id"
