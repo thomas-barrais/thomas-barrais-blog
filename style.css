@@ -1,0 +1,425 @@
+/* IMPORTS DES POLICES GOOGLE */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,800;1,800&family=Roboto:wght@400;700&display=swap');
+
+/* =========================================
+   RESET ET VARIABLES GLOBALES
+========================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #111;
+    background-color: #f4f4f4;
+    line-height: 1.6;
+}
+
+/* Typographie "Jolie Foulée" - Brut, majuscules, impactant */
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   NAVIGATION (MENU)
+========================================= */
+nav {
+    background-color: #fff;
+    border-bottom: 4px solid #111;
+    padding: 15px 20px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #111;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    transition: all 0.2s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    background-color: #ccff00; /* Jaune fluo */
+    color: #111;
+}
+
+/* =========================================
+   HEADER (EN-TÊTE)
+========================================= */
+header {
+    padding: 80px 20px;
+    background-color: #111;
+    color: #fff;
+    border-bottom: 8px solid #ccff00;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-weight: 700;
+    color: #ccff00;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   STRUCTURE PRINCIPALE (LAYOUT)
+========================================= */
+.container {
+    display: flex;
+    width: 95%; 
+    max-width: 1600px; 
+    margin: 40px auto;
+    padding: 0 20px;
+    gap: 60px; 
+}
+
+.main-content {
+    flex: 2; 
+}
+
+.sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* =========================================
+   ARTICLES & SECTIONS
+========================================= */
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    border-left: 8px solid #ccff00;
+    padding-left: 15px;
+}
+
+/* Design des cartes articles */
+.article-card {
+    background: #fff;
+    border: 4px solid #111;
+    padding: 25px;
+    margin-bottom: 30px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.article-card:hover {
+    transform: translate(-5px, -5px);
+    box-shadow: 10px 10px 0px #ccff00;
+}
+
+.article-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.article-card .date {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.article-card p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+/* Boutons */
+.btn-read {
+    display: inline-block;
+    background-color: #111;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 2px solid #111;
+    transition: all 0.2s ease;
+}
+
+.btn-read:hover {
+    background-color: #ccff00;
+    color: #111;
+}
+
+/* =========================================
+   WIDGETS (BARRE LATÉRALE)
+========================================= */
+.widget {
+    background: #fff;
+    padding: 25px;
+    border: 4px solid #111;
+}
+
+.widget h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    border-bottom: 4px solid #ccff00;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* =========================================
+   TABLEAU D'ENTRAÎNEMENT (POUR LA PAGE ENTRAINEMENT.HTML)
+========================================= */
+.training-board {
+    background: #fff;
+    border: 4px solid #111;
+    padding: 20px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+th, td {
+    border: 2px solid #111;
+    padding: 10px 5px;
+}
+
+th { background-color: #111; color: #fff; text-transform: uppercase; }
+
+/* Couleurs de ton fichier Excel */
+.c-footing { background-color: #a9d08e; }
+.c-tempo { background-color: #ffd966; }
+.c-intervalle { background-color: #f4b084; }
+.c-course { background-color: #ff0000; color: #fff; }
+.c-repos { background-color: #7f7f7f; color: #fff; }
+.c-f-actif { background-color: #9bc2e6; }
+.stat-col { background-color: #f4f4f4; }
+
+
+/* =========================================
+   PAGE ARTICLE (LECTURE)
+========================================= */
+
+/* Ajustement de l'en-tête pour la page article */
+.header-article {
+    padding-bottom: 0; /* On enlève l'espace en bas pour coller l'image */
+}
+
+/* Le conteneur de l'image de couverture */
+.cover-container {
+    max-width: 900px;
+    margin: 40px auto 0 auto;
+}
+
+.cover-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 4px solid #111;
+    border-bottom: none; /* Fusionne avec la bordure jaune du header */
+}
+
+/* Style de la citation (Résumé) */
+.article-quote {
+    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    color: #111;
+    border-left: 8px solid #ccff00;
+    padding-left: 20px;
+    margin: 0 0 40px 0;
+    line-height: 1.4;
+}
+
+/* Texte principal de l'article */
+.full-article {
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+.full-article p {
+    margin-bottom: 25px; /* Bel espace entre les paragraphes */
+}
+
+/* Liste des courses dans le widget */
+.race-list {
+    list-style: none;
+    padding: 0;
+}
+.race-list li {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 2px dashed #ccc;
+}
+.race-list li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+.race-list a {
+    color: #111;
+    font-weight: bold;
+    text-decoration: none;
+}
+.race-list a:hover {
+    color: #ccff00;
+    text-shadow: 1px 1px 0 #111;
+}
+
+/* =========================================
+   WIDGET DERNIÈRES COURSES
+========================================= */
+/* Style des liens "Lire le compte-rendu" */
+.link-cr {
+    display: inline-block;
+    margin-top: 5px;
+    color: #111;
+    font-weight: 700;
+    text-decoration: none;
+}
+.link-cr:hover {
+    color: #ccff00;
+    text-shadow: 1px 1px 0 #111;
+}
+
+/* Le gros bouton noir pour les stats */
+.btn-dark {
+    display: block;
+    background-color: #111;
+    color: #fff;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 1rem;
+    margin-top: 20px;
+    transition: all 0.2s ease;
+}
+.btn-dark:hover {
+    background-color: #ccff00;
+    color: #111;
+}
+
+/* =========================================
+   MODE MOBILE (SMARTPHONES)
+========================================= */
+
+/* Par défaut, on cache le bouton hamburger sur l'ordinateur */
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #ccff00;
+    cursor: pointer;
+    padding: 10px 20px;
+    width: 100%;
+    text-align: right;
+    background-color: #111;
+}
+
+@media (max-width: 768px) {
+    /* 1. MENU HAMBURGER */
+    .hamburger {
+        display: block; 
+    }
+    .nav-links {
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        margin: 0 !important;
+        padding: 0 !important;
+        gap: 0 !important; /* TUE L'ESPACEMENT DU PC */
+        background-color: #111;
+    }
+    .nav-links.active {
+        display: flex; 
+    }
+    .nav-links li {
+        text-align: center;
+        border-bottom: 1px solid #333;
+        margin: 0 !important;
+        padding: 0 !important; /* TUE LE PADDING INVISIBLE */
+        width: 100%;
+        display: block;
+    }
+    
+    .nav-links li a {
+        display: flex;
+        align-items: center;      
+        justify-content: center;  
+        width: 100%;
+        min-height: 60px;         
+        padding: 0 !important;               
+        margin: 0 !important;
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .nav-links li a.active {
+        background-color: #ccff00;
+        color: #111; 
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px; /* <-- LA CORRECTION : on remplace le cratère de 60px par un petit espace */
+    }
+    .sidebar {
+        order: -1; 
+        margin-bottom: 0; /* <-- On tue la marge supplémentaire pour ne garder que le gap */
+        width: 100%;
+    }
+    .main-content {
+        order: 1;
+        width: 100%;
+    }
+
+    /* 3. TITRES DES ARTICLES QUI DÉPASSENT */
+    /* 3. TITRES QUI DÉPASSENT (Articles + En-têtes de pages) */
+    .article-card h3, 
+    .header-article h1 {
+        font-size: 1.5rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    /* Le gros titre principal de la page (Le Mur des Lamentations, Objectif 100 Bornes...) */
+    header h1 {
+        font-size: 2.2rem; /* On réduit la taille pour que ça rentre */
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        padding: 0 10px; /* Un petit peu d'air sur les côtés */
+    }
+    /* 4. BONUS : ÉVITER QUE LES GRANDS TABLEAUX NE CASSENT L'ÉCRAN */
+    .training-board {
+        overflow-x: auto; /* Ajoute un scroll horizontal uniquement sur le tableau */
+    }
+    .charts-wrapper {
+        flex-direction: column; /* Superpose les 2 graphiques sur mobile */
+    }
+}

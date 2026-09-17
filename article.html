@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture de la galère - Objectif 100 Bornes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <nav>
+        <button class="hamburger" id="hamburger-btn">&#9776;</button>
+        <ul class="nav-links" id="nav-menu">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="entrainement.html">Entraînement</a></li>
+            <li><a href="articles.html" class="active">Articles</a></li>
+            <li><a href="courses.html">Mes Courses</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+        </ul>
+    </nav>
+
+    <header class="header-article">
+        <!-- Titre et date -->
+        <h1 id="titre-article">Chargement...</h1>
+        <p id="date-article"></p>
+        
+        <!-- L'image de couverture intégrée directement dans l'en-tête noir -->
+        <div class="cover-container">
+            <img id="image-article" src="" alt="Image de l'article" style="display: none;">
+        </div>
+    </header>
+
+    <!-- Nouveau conteneur plus large, sans la "card" -->
+    <div class="container" style="display: block; max-width: 900px; margin: 40px auto;">
+        <main class="main-content">
+            
+            <!-- Le résumé sous forme de citation -->
+            <blockquote id="resume-article" class="article-quote" style="display: none;"></blockquote>
+
+            <!-- Le texte de l'article qui prend toute la place -->
+            <div id="contenu-article" class="full-article">
+                <p>Si ce texte reste affiché, c'est qu'il y a un problème de chargement.</p>
+            </div>
+            
+            <a href="articles.html" class="btn-read" style="margin-top: 40px;">&larr; Retour aux articles</a>
+        </main>
+    </div>
+
+    <!-- LE MOTEUR JAVASCRIPT -->
+    <script>
+        const parametresUrl = new URLSearchParams(window.location.search);
+        const identifiant = parametresUrl.get('id');
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        fetch('articles.json')
+            .then(reponse => reponse.json())
+            .then(articles => {
+                const monArticle = articles.find(a => a.id === identifiant);
+                
+                if (monArticle) {
+                    document.getElementById('titre-article').innerText = monArticle.titre;
+                    document.getElementById('date-article').innerText = monArticle.date;
+                    
+                    // Gestion du résumé en citation
+                    const quoteElement = document.getElementById('resume-article');
+                    if (monArticle.resume) {
+                        quoteElement.innerText = `« ${monArticle.resume} »`;
+                        quoteElement.style.display = 'block';
+                    }
+
+                    // Injection du texte principal
+                    document.getElementById('contenu-article').innerHTML = monArticle.contenu;
+                    
+                    // Gestion de l'image de couverture
+                    if (monArticle.image) {
+                        const imgElement = document.getElementById('image-article');
+                        imgElement.src = monArticle.image;
+                        imgElement.style.display = 'block';
+                    }
+                } else {
+                    document.getElementById('titre-article').innerText = "Erreur 404";
+                    document.getElementById('contenu-article').innerHTML = "<p>Cet article n'existe pas ou a été supprimé lors d'un ravito.</p>";
+                }
+            })
+            .catch(erreur => console.error('Erreur lors du chargement:', erreur));
+        
+        if (hamburgerBtn) {
+            hamburgerBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>

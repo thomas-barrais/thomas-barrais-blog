@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entraînement - Objectif 100 Bornes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <nav>
+        <button class="hamburger" id="hamburger-btn">&#9776;</button>
+        <ul class="nav-links" id="nav-menu">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="entrainement.html" class="active">Entraînement</a></li>
+            <li><a href="articles.html">Articles</a></li>
+            <li><a href="courses.html">Mes Courses</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Le Tableau de la Souffrance</h1>
+    </header>
+    <script>
+        // SCRIPT POUR LE MENU HAMBURGER MOBILE
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const navMenu = document.getElementById('nav-menu');
+        
+        if (hamburgerBtn) {
+            hamburgerBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>

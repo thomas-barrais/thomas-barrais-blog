@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles - Objectif 100 Bornes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <nav>
+        <button class="hamburger" id="hamburger-btn">&#9776;</button>
+        <ul class="nav-links" id="nav-menu">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="entrainement.html">Entraînement</a></li>
+            <li><a href="articles.html" class="active">Articles</a></li>
+            <li><a href="courses.html">Mes Courses</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Toutes les galères</h1>
+        <p>Des larmes, de la sueur et beaucoup de mauvaises excuses.</p>
+    </header>
+
+    <div class="container" style="display: block; max-width: 800px;">
+        <main class="main-content">
+            <section class="latest-articles">
+                <div id="conteneur-articles">
+                    <p>Chargement des galères en cours...</p>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script>
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        fetch('articles.json')
+            .then(reponse => reponse.json())
+            .then(articles => {
+                const conteneur = document.getElementById('conteneur-articles');
+                let htmlCartes = ''; // On prépare une boîte vide pour le HTML
+
+                // On boucle sur chaque article du fichier JSON
+                articles.forEach(article => {
+
+                    let baliseImage = article.image ? `<img src="${article.image}" alt="Illustration" style="width:100%; border: 2px solid #111; margin-bottom: 15px;">` : '';
+
+                    htmlCartes += `
+                    <article class="article-card">
+                        ${baliseImage}
+                        <h3>${article.titre}</h3>
+                        <p class="date">${article.date}</p>
+                        <p>${article.resume}</p>
+                        <a href="article.html?id=${article.id}" class="btn-read">Lire la suite &rarr;</a>
+                    </article>
+                    `;
+                });
+
+                // On injecte tout le HTML d'un coup dans la page
+                conteneur.innerHTML = htmlCartes;
+            })
+            .catch(erreur => console.error('Erreur lors du chargement des articles:', erreur));
+        
+        if (hamburgerBtn) {
+            hamburgerBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>

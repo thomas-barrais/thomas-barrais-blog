@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objectif 100 Bornes | Zéro Talent</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- BARRE DE NAVIGATION -->
+    <nav>
+        <button class="hamburger" id="hamburger-btn">&#9776;</button>
+        <ul class="nav-links" id="nav-menu">
+            <li><a href="index.html" class="active">Accueil</a></li>
+            <li><a href="entrainement.html">Entraînement</a></li>
+            <li><a href="articles.html">Articles</a></li>
+            <li><a href="courses.html">Mes Courses</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+        </ul>
+    </nav>
+
+    <!-- EN-TÊTE DU BLOG -->
+    <header>
+        <h1>Objectif 100 Bornes</h1>
+        <p>En route pour Octobre 2029 — Le pire plan d'entraînement de l'histoire.</p>
+    </header>
+
+    <!-- CONTENU PRINCIPAL (2 colonnes) -->
+    <div class="container">
+        
+        <!-- COLONNE GAUCHE : LES ARTICLES -->
+        <main class="main-content">
+            <div style="background-color: #111; color: #fff; padding: 30px; margin-bottom: 40px; border-left: 5px solid #ccff00;">
+                <h2 style="color: #ccff00; margin-top: 0; margin-bottom: 15px; border: none; font-size: 1.6rem;">Pourquoi les 100km de la Somme en 2029 ?</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 20px; line-height: 1.6;">
+                    Parce que quitte à foncer dans un mur, autant le faire avec un maximum d'élan. J'ai un peu moins de 3 ans pour me reconstruire une cheville, retrouver la foi, et apprendre à aimer courir à plat le long d'un canal sans fin. Zéro talent, 100% de transpiration. Bienvenue dans mon journal de bord.
+                </p>
+                <a href="a-propos.html" style="display: inline-block; background-color: #ccff00; color: #111; padding: 10px 20px; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 0.9rem; transition: opacity 0.3s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">Découvrir le projet complet</a>
+            </div>
+            <section class="latest-articles">
+                <h2 class="section-title">Dernières Galères</h2>
+                <div id="conteneur-articles">
+                    <p>Chargement des galères en cours...</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- COLONNE DROITE : BARRE LATÉRALE (WIDGETS) -->
+        <aside class="sidebar">
+            
+            <div class="widget">
+                <h2>Le Projet</h2>
+                <p>Survivre aux 100km de la Somme en 2029. Ici je documente ma prépa, mes doutes et mes (rares) réussites. Zéro talent, 100% transpiration.</p>
+            </div>
+
+            <div class="widget">
+                <h2>Strava ne ment jamais</h2>
+                <p>Même quand tu rampes. Lâche tes kudos.</p>
+                <iframe height='160' width='300' frameborder='0' allowtransparency='true' scrolling='no' src='https://www.strava.com/athletes/88976009/activity-summary/0eb6b1fb30e17dff8dabf1d73cddea63783a264b'></iframe>
+            </div>
+
+            <!-- NOUVEAU WIDGET : PROCHAIN MASSACRE -->
+            <div class="widget">
+                <h2>PROCHAIN MASSACRE</h3>
+                <p><strong>Semi-marathon de Deauville</strong><br>
+                <span style="font-size: 0.9rem; color: #555;">Novembre 2026</span></p>
+                <ul style="list-style-type: none; padding: 0; font-size: 0.9rem; margin-top: 10px;">
+                    <li style="margin-bottom: 5px;">🎯 <strong>Objectif :</strong> Finir avant le démontage de l'arche.</li>
+                    <li style="margin-bottom: 5px;">📉 <strong>Prépa :</strong> Inexistante.</li>
+                    <li>👟 <strong>État d'esprit :</strong> Proche de l'abandon.</li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h2>Mes Dernières Courses</h2>
+                <ul class="race-list" id="widget-courses">
+                    <li>Chargement...</li>
+                </ul>
+                <a href="courses.html" class="btn-dark">Voir toutes mes stats</a>           
+            </div>
+        </aside>
+    </div>
+    <script>
+        // --- CHARGEMENT DU WIDGET "MES DERNIÈRES COURSES" ---
+        fetch('courses.json')
+            .then(reponse => reponse.json())
+            .then(courses => {
+                const widgetConteneur = document.getElementById('widget-courses');
+                
+                // On prend simplement les 2 dernières courses du fichier, sans filtrer
+                const dernieresCourses = courses.slice(0, 2); 
+
+                let htmlWidget = '';
+                
+                dernieresCourses.forEach(course => {
+                    let nomCourse = course.nom ? course.nom : `${course.distance} km`;
+                    
+                    // On affiche le lien SEULEMENT si l'article existe
+                    let lienArticle = course.article 
+                        ? `<a href="article.html?id=${course.article}" class="link-cr">Lire le compte-rendu &rarr;</a>` 
+                        : `<span style="font-size: 0.85rem; color: #777; font-style: italic;">Pas de récit pour cette course</span>`;
+                    
+                    htmlWidget += `
+                    <li>
+                        <strong>${nomCourse}</strong> - ${course.chrono}<br>
+                        ${lienArticle}
+                    </li>
+                    `;
+                });
+                
+                widgetConteneur.innerHTML = htmlWidget;
+            })
+            .catch(erreur => console.error('Erreur widget courses:', erreur));
+
+        fetch('articles.json')
+            .then(reponse => reponse.json())
+            .then(articles => {
+                const conteneur = document.getElementById('conteneur-articles');
+                let htmlCartes = ''; // On prépare une boîte vide pour le HTML
+
+                // On boucle sur chaque article du fichier JSON
+                articles.forEach(article => {
+
+                    let baliseImage = article.image ? `<img src="${article.image}" alt="Illustration" style="width:100%; border: 2px solid #111; margin-bottom: 15px;">` : '';
+
+                    htmlCartes += `
+                    <article class="article-card">
+                        ${baliseImage}
+                        <h3>${article.titre}</h3>
+                        <p class="date">${article.date}</p>
+                        <p>${article.resume}</p>
+                        <a href="article.html?id=${article.id}" class="btn-read">Lire la suite &rarr;</a>
+                    </article>
+                    `;
+                });
+
+                // On injecte tout le HTML d'un coup dans la page
+                conteneur.innerHTML = htmlCartes;
+            })
+            .catch(erreur => console.error('Erreur lors du chargement des articles:', erreur));
+
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const navMenu = document.getElementById('nav-menu');
+        
+        if (hamburgerBtn) {
+            hamburgerBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>
