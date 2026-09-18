@@ -48,7 +48,7 @@ collections:
                 value_field: "liste_articles.*.id"
                 required: false
 
-    - name: "entrainement"
+  - name: "entrainement"
     label: "Entraînement"
     files:
       - label: "Semaines d'entraînement"
