@@ -174,6 +174,150 @@
           "dimanche_type": "Repos"
         }
       ]
+    },
+    {
+      "nom_prepa": "10km des Champs-Élysées",
+      "annee": "2026",
+      "liste_semaines": [
+        {
+          "titre": "S1 (Reprise)",
+          "dates": "03/11 - 09/11",
+          "total_km": 8.16,
+          "jeudi_type": "Endurance", "jeudi_km": 3.02,
+          "dimanche_type": "Tempo", "dimanche_km": 5.14
+        },
+        {
+          "titre": "S2",
+          "dates": "10/11 - 16/11",
+          "total_km": 23.86,
+          "mardi_type": "Marche", "mardi_km": 5.71,
+          "mercredi_type": "Tempo", "mercredi_km": 5.12,
+          "vendredi_type": "Tempo", "vendredi_km": 5.51,
+          "dimanche_type": "Endurance", "dimanche_km": 7.52
+        },
+        {
+          "titre": "S3",
+          "dates": "17/11 - 23/11",
+          "total_km": 26.86,
+          "mardi_type": "Endurance", "mardi_km": 4.87,
+          "mercredi_type": "Tempo", "mercredi_km": 5.13,
+          "vendredi_type": "Tempo", "vendredi_km": 6.16,
+          "dimanche_type": "Endurance", "dimanche_km": 10.70
+        },
+        {
+          "titre": "S4",
+          "dates": "24/11 - 30/11",
+          "total_km": 33.34,
+          "mardi_type": "Endurance", "mardi_km": 4.64,
+          "mercredi_type": "Endurance", "mercredi_km": 8.46,
+          "jeudi_type": "Endurance", "jeudi_km": 3.12,
+          "vendredi_type": "Endurance", "vendredi_km": 7.19,
+          "dimanche_type": "Course", "dimanche_titre": "10km trail du figaro", "dimanche_km": 9.93
+        },
+        {
+          "titre": "S5",
+          "dates": "01/12 - 07/12",
+          "total_km": 35.84,
+          "lundi_type": "Endurance", "lundi_km": 5.05,
+          "mercredi_type": "Endurance", "mercredi_km": 7.14,
+          "jeudi_type": "Endurance", "jeudi_km": 5.04,
+          "samedi_type": "Endurance", "samedi_km": 6.58,
+          "dimanche_type": "SL Allure", "dimanche_km": 12.03
+        },
+        {
+          "titre": "S6",
+          "dates": "08/12 - 14/12",
+          "total_km": 42.21,
+          "lundi_type": "Endurance", "lundi_km": 10.22,
+          "mercredi_type": "Tempo", "mercredi_km": 7.30,
+          "jeudi_type": "Endurance", "jeudi_km": 5.31,
+          "vendredi_type": "Intervalles", "vendredi_km": 10.37,
+          "dimanche_type": "Endurance", "dimanche_km": 9.01
+        },
+        {
+          "titre": "S7",
+          "dates": "15/12 - 21/12",
+          "total_km": 47.90,
+          "lundi_type": "Endurance", "lundi_km": 7.55,
+          "mercredi_type": "Intervalles", "mercredi_km": 8.39,
+          "jeudi_type": "Endurance", "jeudi_km": 7.03,
+          "vendredi_type": "Tempo", "vendredi_km": 10.64,
+          "dimanche_type": "SL Allure", "dimanche_km": 14.29
+        },
+        {
+          "titre": "S8",
+          "dates": "22/12 - 28/12",
+          "total_km": 48.72,
+          "lundi_type": "Endurance", "lundi_km": 9.14,
+          "mercredi_type": "Tempo", "mercredi_km": 8.35,
+          "jeudi_type": "Endurance", "jeudi_km": 8.01,
+          "vendredi_type": "Tempo", "vendredi_km": 8.22,
+          "dimanche_type": "SL Allure", "dimanche_km": 15.00
+        },
+        {
+          "titre": "S9",
+          "dates": "29/12 - 04/01",
+          "total_km": 22.90,
+          "mardi_type": "Endurance", "mardi_km": 8.42,
+          "mercredi_type": "Intervalles", "mercredi_titre": "1,2km 4:15 + 1km 4:05 + 800m 3:56 + 600m 4:02 + 400m 3:50 + 200m 3:35 r1'30", "mercredi_km": 8.34,
+          "dimanche_type": "Endurance", "dimanche_km": 6.14
+        },
+        {
+          "titre": "S10",
+          "dates": "05/01 - 11/01",
+          "total_km": 60.12,
+          "lundi_type": "Endurance", "lundi_km": 6.12,
+          "mercredi_type": "Tempo", "mercredi_km": 9.11,
+          "jeudi_type": "Endurance", "jeudi_km": 10.85,
+          "samedi_type": "Intervalles", "samedi_titre": "5*1000m 4:05 r1'30", "samedi_km": 12.65,
+          "dimanche_type": "SL Allure", "dimanche_titre": "5km allure", "dimanche_km": 21.39
+        },
+        {
+          "titre": "S11",
+          "dates": "12/01 - 18/01",
+          "total_km": 50.11,
+          "mardi_type": "Endurance", "mardi_km": 8.35,
+          "mercredi_type": "Tempo", "mercredi_titre": "8x(400m 4:15 + 400m 5:20)", "mercredi_km": 10.33,
+          "jeudi_type": "Endurance", "jeudi_km": 6.39,
+          "vendredi_type": "Intervalles", "vendredi_titre": "3x1600m 4:05 r2'", "vendredi_km": 10.01,
+          "dimanche_type": "SL Allure", "dimanche_titre": "2km 5:15 2km 5:00 3,5km 5:21 2km 5:00 2km 4:50", "dimanche_km": 15.03
+        },
+        {
+          "titre": "S12",
+          "dates": "19/01 - 25/01",
+          "total_km": 31.74,
+          "lundi_type": "Endurance", "lundi_km": 7.64,
+          "mercredi_type": "Intervalles", "mercredi_titre": "2x(5x400m 3:50 r1') R2'", "mercredi_km": 10.89,
+          "jeudi_type": "Endurance", "jeudi_km": 6.08,
+          "samedi_type": "Tempo", "samedi_titre": "2x(1000m 4:30 + 1000m 4:15)", "samedi_km": 7.13
+        },
+        {
+          "titre": "S13",
+          "dates": "26/01 - 01/02",
+          "total_km": 34.10,
+          "lundi_type": "Endurance", "lundi_km": 3.37,
+          "mercredi_type": "Intervalles", "mercredi_titre": "8x400m 4:05 r1'15", "mercredi_km": 8.35,
+          "vendredi_type": "Endurance", "vendredi_km": 5.78,
+          "dimanche_type": "Course", "dimanche_titre": "10km des Champs-Élysées", "dimanche_km": 10.00
+        },
+        {
+          "titre": "S14",
+          "dates": "02/02 - 08/02",
+          "total_km": 27.75,
+          "mardi_type": "Endurance", "mardi_km": 6.53,
+          "mercredi_type": "Endurance", "mercredi_km": 7.06,
+          "vendredi_type": "Endurance", "vendredi_km": 6.80,
+          "dimanche_type": "Endurance", "dimanche_km": 7.36
+        },
+        {
+          "titre": "S15",
+          "dates": "09/02 - 15/02",
+          "total_km": 31.37,
+          "mercredi_type": "Endurance", "mercredi_km": 7.52,
+          "jeudi_type": "Endurance", "jeudi_km": 10.81,
+          "vendredi_type": "Endurance", "vendredi_km": 13.04
+        }
+      ]
     }
   ]
 }
