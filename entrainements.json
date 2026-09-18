@@ -1,0 +1,21 @@
+{
+  "liste_semaines": [
+    {
+      "dimanche_detail": "5,7",
+      "dates": "10/08 - 16/08",
+      "samedi_detail": "8,1",
+      "mardi_detail": "4,78",
+      "dimanche_type": "Endurance",
+      "samedi_type": "Endurance",
+      "lundi_type": "Renfo",
+      "mercredi_detail": "6,24",
+      "jeudi_detail": "3,77",
+      "titre": "Semi Deauville S1",
+      "mardi_type": "Endurance",
+      "mercredi_type": "Endurance",
+      "jeudi_type": "Endurance",
+      "vendredi_type": "Renfo",
+      "total_km": 39
+    }
+  ]
+}
