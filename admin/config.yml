@@ -48,39 +48,46 @@ collections:
                 value_field: "liste_articles.*.id"
                 required: false
 
-  - name: "entrainement"
+- name: "entrainement"
     label: "Entraînement"
     files:
-      - label: "Semaines d'entraînement"
-        name: "semaines"
+      - label: "Mes Préparations"
+        name: "preparations"
         file: "entrainements.json"
         format: "json"
         fields:
-          - label: "Liste des semaines"
-            name: "liste_semaines"
+          - label: "Liste des Préparations (ex: Semi Deauville)"
+            name: "liste_prepas"
             widget: "list"
             fields:
-              - {label: "Nom de la semaine (ex: S1 - Reprise)", name: "titre", widget: "string"}
-              - {label: "Dates (ex: 01/09 - 07/09)", name: "dates", widget: "string"}
-              - {label: "Total KM de la semaine", name: "total_km", widget: "number", value_type: "float"}
+              - {label: "Nom de l'objectif (ex: Semi Deauville)", name: "nom_prepa", widget: "string"}
+              - {label: "Année (ex: 2026)", name: "annee", widget: "string"}
               
-              - {label: "Lundi (Type)", name: "lundi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Fractionné", "Course", "Vélo", "Renfo"]}
-              - {label: "Lundi (Détail + KM)", name: "lundi_detail", widget: "string", required: false}
-              
-              - {label: "Mardi (Type)", name: "mardi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Fractionné", "Course", "Vélo", "Renfo"]}
-              - {label: "Mardi (Détail + KM)", name: "mardi_detail", widget: "string", required: false}
-              
-              - {label: "Mercredi (Type)", name: "mercredi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Fractionné", "Course", "Vélo", "Renfo"]}
-              - {label: "Mercredi (Détail + KM)", name: "mercredi_detail", widget: "string", required: false}
-              
-              - {label: "Jeudi (Type)", name: "jeudi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Fractionné", "Course", "Vélo", "Renfo"]}
-              - {label: "Jeudi (Détail + KM)", name: "jeudi_detail", widget: "string", required: false}
-              
-              - {label: "Vendredi (Type)", name: "vendredi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Fractionné", "Course", "Vélo", "Renfo"]}
-              - {label: "Vendredi (Détail + KM)", name: "vendredi_detail", widget: "string", required: false}
-              
-              - {label: "Samedi (Type)", name: "samedi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Fractionné", "Course", "Vélo", "Renfo"]}
-              - {label: "Samedi (Détail + KM)", name: "samedi_detail", widget: "string", required: false}
-              
-              - {label: "Dimanche (Type)", name: "dimanche_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Fractionné", "Course", "Vélo", "Renfo"]}
-              - {label: "Dimanche (Détail + KM)", name: "dimanche_detail", widget: "string", required: false}
+              - label: "Semaines d'entraînement"
+                name: "liste_semaines"
+                widget: "list"
+                fields:
+                  - {label: "Nom (ex: S1 - Reprise)", name: "titre", widget: "string"}
+                  - {label: "Dates (ex: 01/09 - 07/09)", name: "dates", widget: "string"}
+                  - {label: "Total KM", name: "total_km", widget: "number", value_type: "float"}
+                  
+                  - {label: "Lundi (Type)", name: "lundi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Fractionné", "Course", "Vélo/Croisé"]}
+                  - {label: "Lundi (Détail + KM)", name: "lundi_detail", widget: "string", required: false}
+                  
+                  - {label: "Mardi (Type)", name: "mardi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Fractionné", "Course", "Vélo/Croisé"]}
+                  - {label: "Mardi (Détail + KM)", name: "mardi_detail", widget: "string", required: false}
+                  
+                  - {label: "Mercredi (Type)", name: "mercredi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Fractionné", "Course", "Vélo/Croisé"]}
+                  - {label: "Mercredi (Détail + KM)", name: "mercredi_detail", widget: "string", required: false}
+                  
+                  - {label: "Jeudi (Type)", name: "jeudi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Fractionné", "Course", "Vélo/Croisé"]}
+                  - {label: "Jeudi (Détail + KM)", name: "jeudi_detail", widget: "string", required: false}
+                  
+                  - {label: "Vendredi (Type)", name: "vendredi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Fractionné", "Course", "Vélo/Croisé"]}
+                  - {label: "Vendredi (Détail + KM)", name: "vendredi_detail", widget: "string", required: false}
+                  
+                  - {label: "Samedi (Type)", name: "samedi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Fractionné", "Course", "Vélo/Croisé"]}
+                  - {label: "Samedi (Détail + KM)", name: "samedi_detail", widget: "string", required: false}
+                  
+                  - {label: "Dimanche (Type)", name: "dimanche_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Fractionné", "Course", "Vélo/Croisé"]}
+                  - {label: "Dimanche (Détail + KM)", name: "dimanche_detail", widget: "string", required: false}
