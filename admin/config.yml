@@ -48,7 +48,7 @@ collections:
                 value_field: "liste_articles.*.id"
                 required: false
 
-  - name: "entrainement"
+- name: "entrainement"
     label: "Entraînement"
     files:
       - label: "Mes Préparations"
@@ -71,23 +71,30 @@ collections:
                   - {label: "Dates (ex: 01/09 - 07/09)", name: "dates", widget: "string"}
                   - {label: "Total KM", name: "total_km", widget: "number", value_type: "float"}
                   
-                  - {label: "Lundi (Type)", name: "lundi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Intervalles", "Renfo", "Course", "Vélo"]}
-                  - {label: "Lundi (Détail + KM)", name: "lundi_detail", widget: "string", required: false}
+                  - {label: "Lundi (Type)", name: "lundi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Intervalles", "Renfo", "Course", "Vélo"], default: "Repos"}
+                  - {label: "Lundi (Titre optionnel)", name: "lundi_titre", widget: "string", required: false}
+                  - {label: "Lundi (KM)", name: "lundi_km", widget: "number", value_type: "float", required: false}
                   
-                  - {label: "Mardi (Type)", name: "mardi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Intervalles", "Renfo", "Course", "Vélo"]}
-                  - {label: "Mardi (Détail + KM)", name: "mardi_detail", widget: "string", required: false}
+                  - {label: "Mardi (Type)", name: "mardi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Intervalles", "Renfo", "Course", "Vélo"], default: "Repos"}
+                  - {label: "Mardi (Titre optionnel)", name: "mardi_titre", widget: "string", required: false}
+                  - {label: "Mardi (KM)", name: "mardi_km", widget: "number", value_type: "float", required: false}
                   
-                  - {label: "Mercredi (Type)", name: "mercredi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Intervalles", "Renfo", "Course", "Vélo"]}
-                  - {label: "Mercredi (Détail + KM)", name: "mercredi_detail", widget: "string", required: false}
+                  - {label: "Mercredi (Type)", name: "mercredi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Intervalles", "Renfo", "Course", "Vélo"], default: "Repos"}
+                  - {label: "Mercredi (Titre optionnel)", name: "mercredi_titre", widget: "string", required: false}
+                  - {label: "Mercredi (KM)", name: "mercredi_km", widget: "number", value_type: "float", required: false}
                   
-                  - {label: "Jeudi (Type)", name: "jeudi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Intervalles", "Renfo", "Course", "Vélo"]}
-                  - {label: "Jeudi (Détail + KM)", name: "jeudi_detail", widget: "string", required: false}
+                  - {label: "Jeudi (Type)", name: "jeudi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Intervalles", "Renfo", "Course", "Vélo"], default: "Repos"}
+                  - {label: "Jeudi (Titre optionnel)", name: "jeudi_titre", widget: "string", required: false}
+                  - {label: "Jeudi (KM)", name: "jeudi_km", widget: "number", value_type: "float", required: false}
                   
-                  - {label: "Vendredi (Type)", name: "vendredi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Intervalles", "Renfo", "Course", "Vélo"]}
-                  - {label: "Vendredi (Détail + KM)", name: "vendredi_detail", widget: "string", required: false}
+                  - {label: "Vendredi (Type)", name: "vendredi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Intervalles", "Renfo", "Course", "Vélo"], default: "Repos"}
+                  - {label: "Vendredi (Titre optionnel)", name: "vendredi_titre", widget: "string", required: false}
+                  - {label: "Vendredi (KM)", name: "vendredi_km", widget: "number", value_type: "float", required: false}
                   
-                  - {label: "Samedi (Type)", name: "samedi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Intervalles", "Renfo", "Course", "Vélo"]}
-                  - {label: "Samedi (Détail + KM)", name: "samedi_detail", widget: "string", required: false}
+                  - {label: "Samedi (Type)", name: "samedi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Intervalles", "Renfo", "Course", "Vélo"], default: "Repos"}
+                  - {label: "Samedi (Titre optionnel)", name: "samedi_titre", widget: "string", required: false}
+                  - {label: "Samedi (KM)", name: "samedi_km", widget: "number", value_type: "float", required: false}
                   
-                  - {label: "Dimanche (Type)", name: "dimanche_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Intervalles", "Renfo", "Course", "Vélo"]}
-                  - {label: "Dimanche (Détail + KM)", name: "dimanche_detail", widget: "string", required: false}
+                  - {label: "Dimanche (Type)", name: "dimanche_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Intervalles", "Renfo", "Course", "Vélo"], default: "Repos"}
+                  - {label: "Dimanche (Titre optionnel)", name: "dimanche_titre", widget: "string", required: false}
+                  - {label: "Dimanche (KM)", name: "dimanche_km", widget: "number", value_type: "float", required: false}
