@@ -21,6 +21,7 @@ collections:
               - {label: "Titre", name: "titre", widget: "string"}
               - {label: "Date", name: "date", widget: "string"}
               - {label: "Résumé", name: "resume", widget: "text"}
+              - {label: "Lien Strava", name: "lien_strava", widget: "string", required: false}
               - {label: "Image", name: "image", widget: "image"}
               - {label: "Contenu (HTML)", name: "contenu", widget: "text"}
 
