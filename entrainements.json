@@ -16,6 +16,21 @@
       "jeudi_type": "Endurance",
       "vendredi_type": "Renfo",
       "total_km": 39
+    },
+    {
+      "dimanche_detail": "5,7",
+      "dates": "17/08 - 23/08",
+      "samedi_detail": "6,64",
+      "dimanche_type": "Endurance",
+      "samedi_type": "Fractionné",
+      "lundi_type": "Repos",
+      "mercredi_detail": "7,13",
+      "titre": "Semi Deauville S2",
+      "mardi_type": "Repos",
+      "mercredi_type": "Tempo",
+      "jeudi_type": "Repos",
+      "vendredi_type": "Repos",
+      "total_km": 23.78
     }
   ]
 }
