@@ -89,22 +89,35 @@
                 case 'Vélo': return 'c-velo';
                 case 'Renfo': return 'c-renfo';
                 case 'Repos': 
+                case 'Aucun':
                 default: return 'c-repos';
             }
         }
 
-        function formatCell(type, titre, km, oldDetail) {
-            if (!type || type === 'Repos') return 'Repos';
+        // Nouvelle fonction gérant la séparation verticale (Biquotidien)
+        function formatCell(type1, titre1, km1, type2, titre2, km2) {
+            let html = '<div class="td-split-container">';
             
-            let displayTitle = (titre && titre.trim() !== '') ? titre : type;
-            let result = `<strong>${displayTitle}</strong>`;
+            // Gestion de la Séance 1
+            let t1 = (!type1 || type1 === '') ? 'Repos' : type1;
+            let displayTitle1 = (titre1 && titre1.trim() !== '') ? titre1 : t1;
+            let kmText1 = (km1 && parseFloat(km1) > 0) ? `<br>${km1} km` : '';
             
-            if (km !== undefined && km !== null && km !== '' && parseFloat(km) > 0) {
-                result += `<br>${km} km`;
-            } else if (oldDetail !== undefined && oldDetail !== null && oldDetail !== '') {
-                result += `<br>${oldDetail}`;
+            // Détection d'une vraie Séance 2
+            let hasSession2 = (type2 && type2 !== 'Repos' && type2 !== 'Aucun' && type2 !== '');
+            
+            // Affichage de la Séance 1 (avec une bordure noire en bas si la séance 2 existe)
+            html += `<div class="session-box ${getTypeClass(t1)} ${hasSession2 ? 'border-b' : ''}"><strong>${displayTitle1}</strong>${kmText1}</div>`;
+            
+            // Affichage de la Séance 2
+            if (hasSession2) {
+                let displayTitle2 = (titre2 && titre2.trim() !== '') ? titre2 : type2;
+                let kmText2 = (km2 && parseFloat(km2) > 0) ? `<br>${km2} km` : '';
+                html += `<div class="session-box ${getTypeClass(type2)}"><strong>${displayTitle2}</strong>${kmText2}</div>`;
             }
-            return result;
+            
+            html += '</div>';
+            return html;
         }
 
         const colorPalette = ['#ccff00', '#ffffff', '#888888', '#FC4C02', '#444444'];
@@ -135,7 +148,6 @@
                     let labelsGraphiquePrepa = [];
                     let datasGraphiquePrepa = [];
                     
-                    // On récupère l'année de la prépa (ex: 2026)
                     let anneeTracker = parseInt(prepa.annee) || new Date().getFullYear();
                     let moisPrecedent = -1;
 
@@ -147,37 +159,33 @@
                         labelsGraphiquePrepa.push(sem.titre || `S${semaines.indexOf(sem)+1}`);
                         datasGraphiquePrepa.push(totalKmSemaine);
 
-                        // MOTEUR TEMPOREL BLINDÉ
                         try {
                             if (sem.dates && sem.dates.includes('-')) {
-                                const startStr = sem.dates.split('-')[0].trim(); // ex: "10/08"
+                                const startStr = sem.dates.split('-')[0].trim();
                                 const [startDayStr, startMonthStr] = startStr.split('/');
                                 
                                 if (startDayStr && startMonthStr) {
-                                    const startMonth = parseInt(startMonthStr) - 1; // 0 (Janvier) à 11 (Décembre)
+                                    const startMonth = parseInt(startMonthStr) - 1;
                                     const startDay = parseInt(startDayStr);
 
-                                    // Si on passe de Décembre (11) à Janvier (0), on augmente l'année
                                     if (moisPrecedent === 11 && startMonth === 0) {
                                         anneeTracker++;
                                     }
                                     moisPrecedent = startMonth;
 
-                                    // Initialisation du calendrier sur le Lundi de cette semaine
                                     let currentDate = new Date(anneeTracker, startMonth, startDay);
 
-                                    // Récupération des kilomètres jour par jour (zéro par défaut si case vide ou repos)
+                                    // L'addition magique : on somme la séance 1 et la séance 2 pour le jour J
                                     const dailyKms = [
-                                        parseFloat(sem.lundi_km) || 0,
-                                        parseFloat(sem.mardi_km) || 0,
-                                        parseFloat(sem.mercredi_km) || 0,
-                                        parseFloat(sem.jeudi_km) || 0,
-                                        parseFloat(sem.vendredi_km) || 0,
-                                        parseFloat(sem.samedi_km) || 0,
-                                        parseFloat(sem.dimanche_km) || 0
+                                        (parseFloat(sem.lundi_km) || 0) + (parseFloat(sem.lundi_km_2) || 0),
+                                        (parseFloat(sem.mardi_km) || 0) + (parseFloat(sem.mardi_km_2) || 0),
+                                        (parseFloat(sem.mercredi_km) || 0) + (parseFloat(sem.mercredi_km_2) || 0),
+                                        (parseFloat(sem.jeudi_km) || 0) + (parseFloat(sem.jeudi_km_2) || 0),
+                                        (parseFloat(sem.vendredi_km) || 0) + (parseFloat(sem.vendredi_km_2) || 0),
+                                        (parseFloat(sem.samedi_km) || 0) + (parseFloat(sem.samedi_km_2) || 0),
+                                        (parseFloat(sem.dimanche_km) || 0) + (parseFloat(sem.dimanche_km_2) || 0)
                                     ];
 
-                                    // On boucle strictement sur les 7 jours de la semaine
                                     for (let i = 0; i < 7; i++) {
                                         let kmForDay = dailyKms[i];
                                         
@@ -185,16 +193,12 @@
                                             let actualMonth = currentDate.getMonth();
                                             let actualYear = currentDate.getFullYear().toString();
                                             
-                                            // Création du tableau de l'année s'il n'existe pas encore
                                             if (!anneesData[actualYear]) {
                                                 anneesData[actualYear] = Array(12).fill(0);
                                             }
                                             
-                                            // Ajout des KM au mois correspondant exactement à ce jour
                                             anneesData[actualYear][actualMonth] += kmForDay;
                                         }
-                                        
-                                        // Le calendrier avance d'un jour, changeant de mois ou d'année tout seul si nécessaire
                                         currentDate.setDate(currentDate.getDate() + 1);
                                     }
                                 }
@@ -203,23 +207,22 @@
                             console.error("Erreur de calcul des dates sur une semaine : ", e);
                         }
 
-                        // Création du tableau HTML
+                        // Création du tableau HTML avec appel de la nouvelle fonction formatCell (6 paramètres)
                         lignesTableau += `
                             <tr>
                                 <td><strong>${sem.titre || '-'}</strong><br><span class="date-text">${sem.dates || ''}</span></td>
-                                <td class="${getTypeClass(sem.lundi_type)}">${formatCell(sem.lundi_type, sem.lundi_titre, sem.lundi_km, sem.lundi_detail)}</td>
-                                <td class="${getTypeClass(sem.mardi_type)}">${formatCell(sem.mardi_type, sem.mardi_titre, sem.mardi_km, sem.mardi_detail)}</td>
-                                <td class="${getTypeClass(sem.mercredi_type)}">${formatCell(sem.mercredi_type, sem.mercredi_titre, sem.mercredi_km, sem.mercredi_detail)}</td>
-                                <td class="${getTypeClass(sem.jeudi_type)}">${formatCell(sem.jeudi_type, sem.jeudi_titre, sem.jeudi_km, sem.jeudi_detail)}</td>
-                                <td class="${getTypeClass(sem.vendredi_type)}">${formatCell(sem.vendredi_type, sem.vendredi_titre, sem.vendredi_km, sem.vendredi_detail)}</td>
-                                <td class="${getTypeClass(sem.samedi_type)}">${formatCell(sem.samedi_type, sem.samedi_titre, sem.samedi_km, sem.samedi_detail)}</td>
-                                <td class="${getTypeClass(sem.dimanche_type)}">${formatCell(sem.dimanche_type, sem.dimanche_titre, sem.dimanche_km, sem.dimanche_detail)}</td>
+                                <td class="td-split">${formatCell(sem.lundi_type, sem.lundi_titre, sem.lundi_km, sem.lundi_type_2, sem.lundi_titre_2, sem.lundi_km_2)}</td>
+                                <td class="td-split">${formatCell(sem.mardi_type, sem.mardi_titre, sem.mardi_km, sem.mardi_type_2, sem.mardi_titre_2, sem.mardi_km_2)}</td>
+                                <td class="td-split">${formatCell(sem.mercredi_type, sem.mercredi_titre, sem.mercredi_km, sem.mercredi_type_2, sem.mercredi_titre_2, sem.mercredi_km_2)}</td>
+                                <td class="td-split">${formatCell(sem.jeudi_type, sem.jeudi_titre, sem.jeudi_km, sem.jeudi_type_2, sem.jeudi_titre_2, sem.jeudi_km_2)}</td>
+                                <td class="td-split">${formatCell(sem.vendredi_type, sem.vendredi_titre, sem.vendredi_km, sem.vendredi_type_2, sem.vendredi_titre_2, sem.vendredi_km_2)}</td>
+                                <td class="td-split">${formatCell(sem.samedi_type, sem.samedi_titre, sem.samedi_km, sem.samedi_type_2, sem.samedi_titre_2, sem.samedi_km_2)}</td>
+                                <td class="td-split">${formatCell(sem.dimanche_type, sem.dimanche_titre, sem.dimanche_km, sem.dimanche_type_2, sem.dimanche_titre_2, sem.dimanche_km_2)}</td>
                                 <td class="stat-col"><strong>${totalKmSemaine} km</strong></td>
                             </tr>
                         `;
                     });
 
-                    // Assemblage des blocs Prépa
                     const isFirst = index === 0;
                     const activeClassBtn = isFirst ? 'active' : '';
                     const showClassContent = isFirst ? 'show' : '';
@@ -264,7 +267,6 @@
                     
                     container.insertAdjacentHTML('beforeend', prepaHtml);
 
-                    // Allumage du graphique de la prépa
                     const ctxPrepa = document.getElementById(idCanvas).getContext('2d');
                     new Chart(ctxPrepa, {
                         type: 'bar',
@@ -285,7 +287,6 @@
                     });
                 });
 
-                // Activation des accordéons
                 const accordions = document.querySelectorAll('.accordion-btn');
                 accordions.forEach(acc => {
                     acc.addEventListener('click', function() {
@@ -301,13 +302,11 @@
                     });
                 });
 
-                // Mise à jour des compteurs
                 document.getElementById('dashboard-global').style.display = 'block';
                 document.getElementById('kpi-km').innerText = Math.round(grandTotalKm);
                 document.getElementById('kpi-semaines').innerText = grandTotalSemaines;
                 document.getElementById('kpi-prepas').innerText = prepas.length;
 
-                // Construction du graphique annuel
                 const ctxAnnuel = document.getElementById('graphiqueAnnuel').getContext('2d');
                 const datasetsAnnuel = [];
                 let colorIndex = 0;
@@ -315,7 +314,7 @@
                 for (const [annee, dataMois] of Object.entries(anneesData)) {
                     datasetsAnnuel.push({
                         label: `Volume ${annee}`,
-                        data: dataMois.map(val => Math.round(val * 100) / 100), // Arrondi à 2 décimales pour un rendu propre
+                        data: dataMois.map(val => Math.round(val * 100) / 100),
                         borderColor: colorPalette[colorIndex % colorPalette.length],
                         backgroundColor: colorPalette[colorIndex % colorPalette.length],
                         tension: 0.3,
