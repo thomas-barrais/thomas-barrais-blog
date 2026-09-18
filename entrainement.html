@@ -132,30 +132,58 @@
                     const semaines = prepa.liste_semaines || [];
                     const idCanvas = `graphique-prepa-${index}`;
                     
-                    let lignesTableau = '';
-                    let labelsGraphiquePrepa = [];
-                    let datasGraphiquePrepa = [];
-                    const anneeCourante = prepa.annee || "Inconnue";
+                    // --- DEBUT DU MOTEUR TEMPOREL AVANCÉ ---
+                        const datesSplit = sem.dates.split('-');
+                        if (datesSplit.length === 2) {
+                            const startStr = datesSplit[0].trim();
+                            const [startDay, startMonthStr] = startStr.split('/');
+                            
+                            if (startDay && startMonthStr) {
+                                const startMonth = parseInt(startMonthStr) - 1; // 0 (Jan) à 11 (Déc)
+                                
+                                // Détection du passage à la nouvelle année (ex: de Décembre à Janvier)
+                                if (moisPrecedent === 11 && startMonth === 0) {
+                                    anneeTracker++;
+                                }
+                                moisPrecedent = startMonth;
 
-                    if (!anneesData[anneeCourante]) {
-                        anneesData[anneeCourante] = Array(12).fill(0);
-                    }
-
-                    grandTotalSemaines += semaines.length;
-
-                    semaines.forEach(sem => {
-                        const km = parseFloat(sem.total_km) || 0;
-                        grandTotalKm += km;
-                        labelsGraphiquePrepa.push(sem.titre);
-                        datasGraphiquePrepa.push(km);
-
-                        const moisMatch = sem.dates.match(/\d{2}\/(\d{2})/);
-                        if (moisMatch && moisMatch[1]) {
-                            const moisIndex = parseInt(moisMatch[1], 10) - 1;
-                            if (moisIndex >= 0 && moisIndex <= 11) {
-                                anneesData[anneeCourante][moisIndex] += km;
+                                // On initialise le calendrier sur le Lundi
+                                let currentDate = new Date(anneeTracker, startMonth, parseInt(startDay));
+                                
+                                const dailyKms = [
+                                    parseFloat(sem.lundi_km) || 0,
+                                    parseFloat(sem.mardi_km) || 0,
+                                    parseFloat(sem.mercredi_km) || 0,
+                                    parseFloat(sem.jeudi_km) || 0,
+                                    parseFloat(sem.vendredi_km) || 0,
+                                    parseFloat(sem.samedi_km) || 0,
+                                    parseFloat(sem.dimanche_km) || 0
+                                ];
+                                
+                                const sumDaily = dailyKms.reduce((a, b) => a + b, 0);
+                                
+                                // Boucle sur les 7 jours de la semaine
+                                for (let i = 0; i < 7; i++) {
+                                    let kmForDay = sumDaily > 0 ? dailyKms[i] : (km / 7);
+                                    
+                                    if (kmForDay > 0) {
+                                        const actualMonth = currentDate.getMonth();
+                                        const actualYear = currentDate.getFullYear().toString();
+                                        
+                                        // Si l'année n'existe pas encore dans les données du graphique, on la crée
+                                        if (!anneesData[actualYear]) {
+                                            anneesData[actualYear] = Array(12).fill(0);
+                                        }
+                                        
+                                        // On range les kilomètres dans le bon mois et la bonne année
+                                        anneesData[actualYear][actualMonth] += kmForDay;
+                                    }
+                                    // On passe au jour suivant (+1 jour)
+                                    currentDate.setDate(currentDate.getDate() + 1);
+                                }
                             }
                         }
+                        // --- FIN DU MOTEUR TEMPOREL AVANCÉ ---
 
                         // Intégration des nouvelles variables titre et km
                         lignesTableau += `
