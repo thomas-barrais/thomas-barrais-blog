@@ -370,7 +370,7 @@ th { background-color: #111; color: #fff; text-transform: uppercase; }
         justify-content: center;  
         width: 100%;
         min-height: 60px;         
-        padding: 0 !important;               
+        padding: 0 !important;                
         margin: 0 !important;
         color: #fff;
         text-decoration: none;
@@ -382,22 +382,29 @@ th { background-color: #111; color: #fff; text-transform: uppercase; }
         color: #111; 
     }
 
+    /* 2. RÉORGANISATION DE LA PAGE D'ACCUEIL */
     .container {
         display: flex;
         flex-direction: column;
-        gap: 15px; /* <-- LA CORRECTION : on remplace le cratère de 60px par un petit espace */
-    }
-    .sidebar {
-        order: -1; 
-        margin-bottom: 0; /* <-- On tue la marge supplémentaire pour ne garder que le gap */
-        width: 100%;
+        gap: 15px; /* <-- on remplace le cratère de 60px par un petit espace */
     }
     .main-content {
+        display: contents; /* <-- Dissout la boîte principale pour libérer les blocs à l'intérieur */
+    }
+    .bloc-pourquoi {
         order: 1;
         width: 100%;
     }
+    .sidebar {
+        order: 2; 
+        margin-bottom: 0; 
+        width: 100%;
+    }
+    .latest-articles {
+        order: 3;
+        width: 100%;
+    }
 
-    /* 3. TITRES DES ARTICLES QUI DÉPASSENT */
     /* 3. TITRES QUI DÉPASSENT (Articles + En-têtes de pages) */
     .article-card h3, 
     .header-article h1 {
@@ -407,7 +414,7 @@ th { background-color: #111; color: #fff; text-transform: uppercase; }
         hyphens: auto;
     }
 
-    /* Le gros titre principal de la page (Le Mur des Lamentations, Objectif 100 Bornes...) */
+    /* Le gros titre principal de la page */
     header h1 {
         font-size: 2.2rem; /* On réduit la taille pour que ça rentre */
         word-wrap: break-word;
@@ -415,6 +422,7 @@ th { background-color: #111; color: #fff; text-transform: uppercase; }
         hyphens: auto;
         padding: 0 10px; /* Un petit peu d'air sur les côtés */
     }
+
     /* 4. BONUS : ÉVITER QUE LES GRANDS TABLEAUX NE CASSENT L'ÉCRAN */
     .training-board {
         overflow-x: auto; /* Ajoute un scroll horizontal uniquement sur le tableau */
