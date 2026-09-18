@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entraînement - Objectif 100 Bornes</title>
+    <title>Plan d'Entraînement - Objectif 100 Bornes</title>
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
     <link rel="stylesheet" href="style.css">
+    <!-- Librairie pour le graphique -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     
@@ -22,18 +24,136 @@
     </nav>
 
     <header>
-        <h1>Le Tableau de la Souffrance</h1>
+        <h1>Dans le dur</h1>
+        <p>Progression et Volume Hebdomadaire</p>
     </header>
+
+    <div class="container" style="display: block; max-width: 1200px;">
+        <main class="main-content" style="width: 100%;">
+            
+            <!-- BLOC GRAPHIQUE -->
+            <div class="widget" style="margin-bottom: 30px;">
+                <h2 style="margin-bottom: 20px;">Volume Kilométrique</h2>
+                <div style="position: relative; height: 300px; width: 100%;">
+                    <canvas id="graphiqueVolume"></canvas>
+                </div>
+            </div>
+
+            <!-- TABLEAU D'ENTRAÎNEMENT -->
+            <div class="training-board">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Semaine</th>
+                            <th>Lundi</th>
+                            <th>Mardi</th>
+                            <th>Mercredi</th>
+                            <th>Jeudi</th>
+                            <th>Vendredi</th>
+                            <th>Samedi</th>
+                            <th>Dimanche</th>
+                            <th class="stat-col">Total (KM)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableau-body">
+                        <!-- Le contenu sera injecté ici par JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+        </main>
+    </div>
+
     <script>
-        // SCRIPT POUR LE MENU HAMBURGER MOBILE
+        // Menu mobile
         const hamburgerBtn = document.getElementById('hamburger-btn');
         const navMenu = document.getElementById('nav-menu');
-        
         if (hamburgerBtn) {
-            hamburgerBtn.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-            });
+            hamburgerBtn.addEventListener('click', () => navMenu.classList.toggle('active'));
         }
+
+        // Fonction pour convertir le type du CMS en classe CSS
+        function getTypeClass(type) {
+            switch(type) {
+                case 'Endurance': return 'c-footing';
+                case 'Tempo': return 'c-tempo';
+                case 'Fractionné': return 'c-intervalle';
+                case 'Course': return 'c-course';
+                case 'Vélo/Croisé': return 'c-f-actif';
+                case 'Repos': 
+                default: return 'c-repos';
+            }
+        }
+
+        // Formater le texte de la cellule
+        function formatCell(type, detail) {
+            if (type === 'Repos' || !detail) return 'Repos';
+            return `<strong>${type}</strong><br>${detail}`;
+        }
+
+        // Chargement des données CMS
+        fetch('entrainements.json')
+            .then(reponse => reponse.json())
+            .then(data => {
+                const semaines = data.liste_semaines || [];
+                const tableauBody = document.getElementById('tableau-body');
+                
+                // Tableaux pour nourrir le graphique
+                const labelsGraphique = [];
+                const datasGraphique = [];
+
+                semaines.forEach(sem => {
+                    // 1. Remplissage du graphique
+                    labelsGraphique.push(sem.titre);
+                    datasGraphique.push(sem.total_km);
+
+                    // 2. Création de la ligne du tableau
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td><strong>${sem.titre}</strong><br><span style="font-size:0.75rem; font-weight:normal;">${sem.dates}</span></td>
+                        <td class="${getTypeClass(sem.lundi_type)}">${formatCell(sem.lundi_type, sem.lundi_detail)}</td>
+                        <td class="${getTypeClass(sem.mardi_type)}">${formatCell(sem.mardi_type, sem.mardi_detail)}</td>
+                        <td class="${getTypeClass(sem.mercredi_type)}">${formatCell(sem.mercredi_type, sem.mercredi_detail)}</td>
+                        <td class="${getTypeClass(sem.jeudi_type)}">${formatCell(sem.jeudi_type, sem.jeudi_detail)}</td>
+                        <td class="${getTypeClass(sem.vendredi_type)}">${formatCell(sem.vendredi_type, sem.vendredi_detail)}</td>
+                        <td class="${getTypeClass(sem.samedi_type)}">${formatCell(sem.samedi_type, sem.samedi_detail)}</td>
+                        <td class="${getTypeClass(sem.dimanche_type)}">${formatCell(sem.dimanche_type, sem.dimanche_detail)}</td>
+                        <td class="stat-col"><strong>${sem.total_km} km</strong></td>
+                    `;
+                    tableauBody.appendChild(tr);
+                });
+
+                // 3. Initialisation de Chart.js
+                const ctx = document.getElementById('graphiqueVolume').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labelsGraphique,
+                        datasets: [{
+                            label: 'Kilomètres',
+                            data: datasGraphique,
+                            backgroundColor: '#ccff00',
+                            borderColor: '#111111',
+                            borderWidth: 2,
+                            borderRadius: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: { beginAtZero: true }
+                        },
+                        plugins: {
+                            legend: { display: false }
+                        }
+                    }
+                });
+            })
+            .catch(erreur => {
+                console.error('Erreur de chargement des entraînements:', erreur);
+                document.getElementById('tableau-body').innerHTML = '<tr><td colspan="9">Aucun entraînement trouvé. Il va falloir courir un peu !</td></tr>';
+            });
     </script>
 </body>
 </html>
