@@ -225,7 +225,7 @@
           "jeudi_type": "Endurance", "jeudi_km": 3.12,
           "vendredi_type": "Endurance", "vendredi_km": 7.19,
           "samedi_type": "Repos",
-          "dimanche_type": "Course", "dimanche_titre": "10km trail du figaro", "dimanche_km": 9.93
+          "dimanche_type": "Course", "dimanche_titre": "10km trail du figaro", "dimanche_km": 10
         },
         {
           "titre": "S5",
@@ -249,7 +249,7 @@
           "jeudi_type": "Endurance", "jeudi_km": 5.31,
           "vendredi_type": "Intervalles", "vendredi_km": 10.37,
           "samedi_type": "Repos",
-          "dimanche_type": "Endurance", "dimanche_km": 9.01
+          "dimanche_type": "SL Allure", "dimanche_km": 9.01
         },
         {
           "titre": "S7",
@@ -261,7 +261,7 @@
           "jeudi_type": "Endurance", "jeudi_km": 7.03,
           "vendredi_type": "Tempo", "vendredi_km": 10.64,
           "samedi_type": "Repos",
-          "dimanche_type": "SL Allure", "dimanche_km": 14.29
+          "dimanche_type": "SL", "dimanche_km": 14.29
         },
         {
           "titre": "S8",
@@ -281,7 +281,7 @@
           "total_km": 22.30,
           "lundi_type": "Repos",
           "mardi_type": "Endurance", "mardi_km": 8.42,
-          "mercredi_type": "Intervalles", "mercredi_titre": "1,2km 4:15 + 1km 4:05 + 800m 3:56 + 600m 4:02 + 400m 3:50 + 200m 3:35 r1'30", "mercredi_km": 8.34,
+          "mercredi_type": "Intervalles", "mercredi_titre": "1,2km @4:15 1km @4:05 800m @3:56 600m @4:02 400m @3:50 200m @3:35 r1'30", "mercredi_km": 8.34,
           "jeudi_type": "Repos",
           "vendredi_type": "Repos",
           "samedi_type": "Repos",
@@ -296,8 +296,8 @@
           "mercredi_type": "Tempo", "mercredi_km": 9.11,
           "jeudi_type": "Endurance", "jeudi_km": 10.85,
           "vendredi_type": "Repos",
-          "samedi_type": "Intervalles", "samedi_titre": "5*1000m 4:05 r1'30", "samedi_km": 12.65,
-          "dimanche_type": "SL Allure", "dimanche_titre": "5km allure", "dimanche_km": 21.39
+          "samedi_type": "Intervalles", "samedi_titre": "5x1000m @4:05 r1'30", "samedi_km": 12.65,
+          "dimanche_type": "SL", "dimanche_km": 21.39
         },
         {
           "titre": "S11",
@@ -305,11 +305,11 @@
           "total_km": 50.11,
           "lundi_type": "Repos",
           "mardi_type": "Endurance", "mardi_km": 8.35,
-          "mercredi_type": "Tempo", "mercredi_titre": "8x(400m 4:15 + 400m 5:20)", "mercredi_km": 10.33,
+          "mercredi_type": "Tempo", "mercredi_titre": "8x(400m @4:15 + 400m @5:20)", "mercredi_km": 10.33,
           "jeudi_type": "Endurance", "jeudi_km": 6.39,
-          "vendredi_type": "Intervalles", "vendredi_titre": "3x1600m 4:05 r2'", "vendredi_km": 10.01,
+          "vendredi_type": "Intervalles", "vendredi_titre": "3x1600m @4:05 r2'", "vendredi_km": 10.01,
           "samedi_type": "Repos",
-          "dimanche_type": "SL Allure", "dimanche_titre": "2km 5:15 2km 5:00 3,5km 5:21 2km 5:00 2km 4:50", "dimanche_km": 15.03
+          "dimanche_type": "SL Allure", "dimanche_titre": "2km @5:15 2km @5:00 3,5km @5:21 2km 5:00 2km @4:50", "dimanche_km": 15.03
         },
         {
           "titre": "S12",
@@ -317,10 +317,10 @@
           "total_km": 31.74,
           "lundi_type": "Endurance", "lundi_km": 7.64,
           "mardi_type": "Repos",
-          "mercredi_type": "Intervalles", "mercredi_titre": "2x(5x400m 3:50 r1') R2'", "mercredi_km": 10.89,
+          "mercredi_type": "Intervalles", "mercredi_titre": "2x(5x400m @3:50 r1') R2'", "mercredi_km": 10.89,
           "jeudi_type": "Endurance", "jeudi_km": 6.08,
           "vendredi_type": "Repos",
-          "samedi_type": "Tempo", "samedi_titre": "2x(1000m 4:30 + 1000m 4:15)", "samedi_km": 7.13,
+          "samedi_type": "Tempo", "samedi_titre": "2x(1000m @4:30 1000m @4:15)", "samedi_km": 7.13,
           "dimanche_type": "Repos"
         },
         {
@@ -329,7 +329,7 @@
           "total_km": 34.10,
           "lundi_type": "Endurance", "lundi_km": 3.37,
           "mardi_type": "Repos",
-          "mercredi_type": "Intervalles", "mercredi_titre": "8x400m 4:05 r1'15", "mercredi_km": 8.35,
+          "mercredi_type": "Intervalles", "mercredi_titre": "8x400m @4:05 r1'15", "mercredi_km": 8.35,
           "jeudi_type": "Repos",
           "vendredi_type": "Endurance", "vendredi_km": 5.78,
           "samedi_type": "Repos",
