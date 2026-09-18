@@ -75,7 +75,7 @@
           "jeudi_type": "Intervalles", "jeudi_titre": "3x1.2km 4:15", "jeudi_km": 7.50,
           "vendredi_type": "Repos",
           "samedi_type": "Endurance", "samedi_km": 9.10,
-          "dimanche_type": "Course", "dimanche_titre": "Course / Test", "dimanche_km": 9.69
+          "dimanche_type": "Endurance", "dimanche_km": 9.69
         },
         {
           "titre": "S5",
