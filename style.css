@@ -1,100 +1,354 @@
-backend:
-  name: git-gateway
-  branch: main
+/* IMPORTS DES POLICES GOOGLE */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,800;1,800&family=Roboto:wght@400;700&display=swap');
 
-media_folder: "images"
-public_folder: "images"
+/* =========================================
+   RESET ET VARIABLES GLOBALES
+========================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-collections:
-  - name: "donnees_site"
-    label: "Gestion du Blog"
-    files:
-      - label: "Mes Comptes-Rendus"
-        name: "articles"
-        file: "articles.json"
-        fields:
-          - label: "Articles"
-            name: "liste_articles"
-            widget: "list"
-            fields:
-              - {label: "ID de l'article", name: "id", widget: "string"}
-              - {label: "Titre", name: "titre", widget: "string"}
-              - {label: "Date", name: "date", widget: "string"}
-              - {label: "Résumé", name: "resume", widget: "text"}
-              - {label: "Lien Strava", name: "lien_strava", widget: "string", required: false}
-              - {label: "Image", name: "image", widget: "image"}
-              - {label: "Contenu (HTML)", name: "contenu", widget: "text"}
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #111;
+    background-color: #f4f4f4;
+    line-height: 1.6;
+}
 
-      - label: "Mes Courses"
-        name: "courses"
-        file: "courses.json"
-        fields:
-          - label: "Courses"
-            name: "liste_courses"
-            widget: "list"
-            fields:
-              - {label: "Date", name: "date", widget: "string"}
-              - {label: "Nom de la course", name: "nom", widget: "string"}
-              - {label: "Distance (km)", name: "distance", widget: "number", value_type: "float"}
-              - {label: "Dénivelé (m)", name: "denivele", widget: "number"}
-              - {label: "Chrono", name: "chrono", widget: "string"}
-              - label: "Article Lié"
-                name: "article"
-                widget: "relation"
-                collection: "donnees_site"
-                file: "articles"
-                search_fields: ["liste_articles.*.titre"]
-                display_fields: ["liste_articles.*.titre"]
-                value_field: "liste_articles.*.id"
-                required: false
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
 
-  - name: "entrainement"
-    label: "Entraînement"
-    files:
-      - label: "Mes Préparations"
-        name: "preparations"
-        file: "entrainements.json"
-        format: "json"
-        fields:
-          - label: "Liste des Préparations"
-            name: "liste_prepas"
-            widget: "list"
-            fields:
-              - {label: "Nom de l'objectif (ex: Semi Deauville)", name: "nom_prepa", widget: "string"}
-              - {label: "Année (ex: 2026)", name: "annee", widget: "string"}
-              
-              - label: "Semaines d'entraînement"
-                name: "liste_semaines"
-                widget: "list"
-                fields:
-                  - {label: "Nom (ex: S1 - Reprise)", name: "titre", widget: "string"}
-                  - {label: "Dates (ex: 01/09 - 07/09)", name: "dates", widget: "string"}
-                  - {label: "Total KM", name: "total_km", widget: "number", value_type: "float"}
-                  
-                  - {label: "Lundi (Type)", name: "lundi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Intervalles", "Renfo", "Course", "Vélo"], default: "Repos"}
-                  - {label: "Lundi (Titre optionnel)", name: "lundi_titre", widget: "string", required: false}
-                  - {label: "Lundi (KM)", name: "lundi_km", widget: "number", value_type: "float", required: false}
-                  
-                  - {label: "Mardi (Type)", name: "mardi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Intervalles", "Renfo", "Course", "Vélo"], default: "Repos"}
-                  - {label: "Mardi (Titre optionnel)", name: "mardi_titre", widget: "string", required: false}
-                  - {label: "Mardi (KM)", name: "mardi_km", widget: "number", value_type: "float", required: false}
-                  
-                  - {label: "Mercredi (Type)", name: "mercredi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Intervalles", "Renfo", "Course", "Vélo"], default: "Repos"}
-                  - {label: "Mercredi (Titre optionnel)", name: "mercredi_titre", widget: "string", required: false}
-                  - {label: "Mercredi (KM)", name: "mercredi_km", widget: "number", value_type: "float", required: false}
-                  
-                  - {label: "Jeudi (Type)", name: "jeudi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Intervalles", "Renfo", "Course", "Vélo"], default: "Repos"}
-                  - {label: "Jeudi (Titre optionnel)", name: "jeudi_titre", widget: "string", required: false}
-                  - {label: "Jeudi (KM)", name: "jeudi_km", widget: "number", value_type: "float", required: false}
-                  
-                  - {label: "Vendredi (Type)", name: "vendredi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Intervalles", "Renfo", "Course", "Vélo"], default: "Repos"}
-                  - {label: "Vendredi (Titre optionnel)", name: "vendredi_titre", widget: "string", required: false}
-                  - {label: "Vendredi (KM)", name: "vendredi_km", widget: "number", value_type: "float", required: false}
-                  
-                  - {label: "Samedi (Type)", name: "samedi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Intervalles", "Renfo", "Course", "Vélo"], default: "Repos"}
-                  - {label: "Samedi (Titre optionnel)", name: "samedi_titre", widget: "string", required: false}
-                  - {label: "Samedi (KM)", name: "samedi_km", widget: "number", value_type: "float", required: false}
-                  
-                  - {label: "Dimanche (Type)", name: "dimanche_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Intervalles", "Renfo", "Course", "Vélo"], default: "Repos"}
-                  - {label: "Dimanche (Titre optionnel)", name: "dimanche_titre", widget: "string", required: false}
-                  - {label: "Dimanche (KM)", name: "dimanche_km", widget: "number", value_type: "float", required: false}
+/* =========================================
+   NAVIGATION (MENU)
+========================================= */
+nav {
+    background-color: #fff;
+    border-bottom: 4px solid #111;
+    padding: 15px 20px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #111;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    transition: all 0.2s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    background-color: #ccff00;
+    color: #111;
+}
+
+/* =========================================
+   HEADER (EN-TÊTE)
+========================================= */
+header {
+    padding: 80px 20px;
+    background-color: #111;
+    color: #fff;
+    border-bottom: 8px solid #ccff00;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-weight: 700;
+    color: #ccff00;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   STRUCTURE PRINCIPALE (LAYOUT)
+========================================= */
+.container {
+    display: flex;
+    width: 95%; 
+    max-width: 1600px; 
+    margin: 40px auto;
+    padding: 0 20px;
+    gap: 60px; 
+}
+
+.main-content {
+    flex: 2; 
+}
+
+.sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* =========================================
+   ARTICLES & WIDGETS
+========================================= */
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    border-left: 8px solid #ccff00;
+    padding-left: 15px;
+}
+
+.article-card {
+    background: #fff;
+    border: 4px solid #111;
+    padding: 25px;
+    margin-bottom: 30px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.article-card:hover {
+    transform: translate(-5px, -5px);
+    box-shadow: 10px 10px 0px #ccff00;
+}
+
+.article-card h3 { font-size: 1.8rem; margin-bottom: 5px; }
+.article-card .date { font-size: 0.9rem; font-weight: bold; color: #666; margin-bottom: 15px; text-transform: uppercase; }
+.article-card p { margin-bottom: 20px; font-size: 1.1rem; }
+
+.widget {
+    background: #fff;
+    padding: 25px;
+    border: 4px solid #111;
+}
+
+.widget h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    border-bottom: 4px solid #ccff00;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.race-list { list-style: none; padding: 0; }
+.race-list li { margin-bottom: 15px; padding-bottom: 15px; border-bottom: 2px dashed #ccc; }
+.race-list li:last-child { border-bottom: none; margin-bottom: 0; }
+.race-list a { color: #111; font-weight: bold; text-decoration: none; }
+.race-list a:hover { color: #ccff00; text-shadow: 1px 1px 0 #111; }
+
+/* =========================================
+   PAGE ARTICLE DÉTAILLÉE
+========================================= */
+.header-article { padding-bottom: 0; }
+.cover-container { max-width: 900px; margin: 40px auto 0 auto; }
+.cover-container img { width: 100%; height: auto; display: block; border: 4px solid #111; border-bottom: none; }
+.article-quote { font-size: 1.5rem; font-family: 'Montserrat', sans-serif; font-style: italic; color: #111; border-left: 8px solid #ccff00; padding-left: 20px; margin: 0 0 40px 0; line-height: 1.4; }
+.full-article { font-size: 1.2rem; line-height: 1.8; }
+.full-article p { margin-bottom: 25px; }
+
+/* =========================================
+   BOUTONS
+========================================= */
+.btn-read, .btn-dark {
+    display: inline-block;
+    background-color: #111;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    border: 2px solid #111;
+    transition: all 0.2s ease;
+}
+.btn-dark { display: block; text-align: center; padding: 15px 20px; margin-top: 20px; font-size: 1rem; }
+.btn-read:hover, .btn-dark:hover { background-color: #ccff00; color: #111; }
+
+.link-cr { display: inline-block; margin-top: 5px; color: #111; font-weight: 700; text-decoration: none; }
+.link-cr:hover { color: #ccff00; text-shadow: 1px 1px 0 #111; }
+
+.btn-strava {
+    display: inline-block;
+    background-color: #FC4C02;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    border: 2px solid #FC4C02;
+    border-radius: 3px;
+    margin-left: 10px;
+}
+.btn-strava:hover { background-color: #fff; color: #FC4C02; border: 2px solid #FC4C02; }
+
+
+/* =========================================
+   DASHBOARD ENTRAÎNEMENT (LABO)
+========================================= */
+
+/* Couleurs des types de séances */
+.c-footing { background-color: #a9d08e; color: #111; }
+.c-tempo { background-color: #ffd966; color: #111; }
+.c-intervalle { background-color: #f4b084; color: #111; }
+.c-course { background-color: #ff0000; color: #fff; }
+.c-repos { background-color: #7f7f7f; color: #fff; }
+.c-velo { background-color: #9bc2e6; color: #111; } 
+.c-renfo { background-color: #c5a3cd; color: #111; } 
+.stat-col { background-color: #f4f4f4; color: #111; }
+
+/* Conteneurs Dashboard */
+.layout-block { display: block; }
+.full-width { width: 100%; }
+.max-w-1600 { max-width: 1600px; margin: 40px auto; }
+.mb-15 { margin-bottom: 15px; }
+.mb-20 { margin-bottom: 20px; }
+.mb-40 { margin-bottom: 40px; }
+.mb-60 { margin-bottom: 60px; }
+.mt-40 { margin-top: 40px; }
+.text-center { text-align: center; }
+.date-text { font-size: 0.75rem; font-weight: normal; }
+.year-text { color: #666; font-size: 1.5rem; }
+.text-error { color: red; }
+
+/* TABLEAU D'ENTRAÎNEMENT - LE RETOUR DU STYLE BRUT */
+.training-board {
+    background: #fff;
+    border: 4px solid #111; /* Bordure extérieure épaisse */
+    padding: 20px;
+    overflow-x: auto;
+    margin-bottom: 30px;
+}
+
+.training-board table {
+    width: 100%;
+    min-width: 1100px;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: bold;
+    table-layout: fixed;
+}
+
+.training-board th, 
+.training-board td {
+    border: 2px solid #111; /* Bordures intérieures strictes */
+    padding: 10px 5px;
+}
+
+.training-board th { 
+    background-color: #111; 
+    color: #fff; 
+    text-transform: uppercase; 
+}
+
+.training-board th:first-child, .training-board td:first-child { width: 12%; }
+.training-board th:last-child, .training-board td:last-child { width: 10%; }
+
+/* Légende du tableau */
+.legend-wrapper { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; font-weight: bold; font-size: 0.85rem; }
+.legend-item { padding: 5px 10px; border: 2px solid #111; }
+.legend-title { font-size: 1rem; border-bottom: 2px solid #ccff00; display: inline-block; padding-bottom: 5px; }
+
+/* Graphiques & KPI */
+.graph-large { position: relative; height: 350px; width: 100%; }
+.graph-medium { position: relative; height: 250px; width: 100%; }
+.graph-small { position: relative; height: 200px; width: 100%; }
+
+.dashboard-global { display: none; }
+.kpi-container { display: flex; gap: 20px; flex-wrap: wrap; }
+.kpi-box { flex: 1; min-width: 250px; background: #111; color: #fff; padding: 20px; border-bottom: 5px solid #ccff00; text-align: center; }
+.kpi-value { font-family: 'Montserrat', sans-serif; font-size: 3rem; font-weight: 800; color: #ccff00; line-height: 1; margin-bottom: 10px; }
+.kpi-label { text-transform: uppercase; font-weight: bold; font-size: 0.9rem; letter-spacing: 1px; }
+
+/* Système d'accordéons */
+.accordion-btn { background-color: #111; color: #fff; cursor: pointer; padding: 18px 20px; width: 100%; border: none; text-align: left; outline: none; font-size: 1.5rem; font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-weight: 800; transition: 0.3s ease; display: flex; justify-content: space-between; align-items: center; border-left: 8px solid #ccff00; margin-top: 20px; }
+.accordion-btn:hover { background-color: #222; }
+.accordion-btn.active { background-color: #ccff00; color: #111; border-left: 8px solid #111; }
+.accordion-content { padding: 0; background-color: transparent; max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; margin-bottom: 10px; }
+.accordion-content.show { max-height: 5000px; padding: 20px 0; }
+
+
+/* =========================================
+   MODE MOBILE (SMARTPHONES) - BLOC UNIQUE
+========================================= */
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #ccff00;
+    cursor: pointer;
+    padding: 10px 20px;
+    width: 100%;
+    text-align: right;
+    background-color: #111;
+}
+
+@media (max-width: 768px) {
+    /* Menu Hamburger */
+    .hamburger { display: block; }
+    .nav-links {
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        margin: 0 !important;
+        padding: 0 !important;
+        gap: 0 !important; 
+        background-color: #111;
+    }
+    .nav-links.active { display: flex; }
+    .nav-links li {
+        text-align: center;
+        border-bottom: 1px solid #333;
+        margin: 0 !important;
+        padding: 0 !important; 
+        width: 100%;
+        display: block;
+    }
+    .nav-links li a {
+        display: flex;
+        align-items: center;      
+        justify-content: center;  
+        width: 100%;
+        min-height: 60px;         
+        padding: 0 !important;                
+        margin: 0 !important;
+        color: #fff;
+    }
+    .nav-links li a.active { background-color: #ccff00; color: #111; }
+
+    /* Réorganisation Layout */
+    .container { flex-direction: column; gap: 15px; }
+    .main-content { display: contents; }
+    .bloc-pourquoi { order: 1; width: 100%; }
+    .sidebar { order: 2; margin-bottom: 0; width: 100%; }
+    .latest-articles { order: 3; width: 100%; }
+
+    /* Titres qui dépassent */
+    .article-card h3, .header-article h1, header h1 {
+        font-size: 1.8rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    /* Dashboard & Graphiques */
+    .kpi-box { min-width: 100%; }
+    .accordion-btn { font-size: 1.1rem; padding: 15px; }
+    .graph-large { height: 250px; }
+}
