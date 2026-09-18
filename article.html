@@ -44,7 +44,12 @@
                 <p>Si ce texte reste affiché, c'est qu'il y a un problème de chargement.</p>
             </div>
             
-            <a href="articles.html" class="btn-read" style="margin-top: 40px;">&larr; Retour aux articles</a>
+            <!-- Les boutons de fin d'article alignés proprement -->
+            <div style="margin-top: 40px; display: flex; flex-wrap: wrap; gap: 15px; align-items: center;">
+                <a href="articles.html" class="btn-read">&larr; Retour aux articles</a>
+                <a id="lien-strava-article" href="#" target="_blank" class="btn-strava" style="display: none;">🔥 Voir l'activité sur Strava</a>
+            </div>
+
         </main>
     </div>
 
@@ -81,6 +86,15 @@
                         imgElement.src = monArticle.image;
                         imgElement.style.display = 'block';
                     }
+
+                    // --- AJOUT DU SCRIPT POUR LE BOUTON STRAVA ICI ---
+                    const btnStrava = document.getElementById('lien-strava-article');
+                    if (monArticle.lien_strava) {
+                        btnStrava.href = monArticle.lien_strava;
+                        btnStrava.style.display = 'inline-block';
+                    }
+                    // -------------------------------------------------
+
                 } else {
                     document.getElementById('titre-article').innerText = "Erreur 404";
                     document.getElementById('contenu-article').innerHTML = "<p>Cet article n'existe pas ou a été supprimé lors d'un ravito.</p>";
