@@ -23,14 +23,13 @@
     </nav>
 
     <header>
-        <h1>Le Labo</h1>
-        <p>Analyse de la souffrance</p>
+        <h1>Dans le dur</h1>
+        <p>Mes blocs d'entraînement, année après année</p>
     </header>
 
-    <div class="container layout-block max-w-1200">
+    <div class="container layout-block max-w-1600">
         <main class="main-content full-width">
             
-            <!-- NIVEAU 1 : LA VUE HÉLICOPTÈRE (GLOBAL) -->
             <div id="dashboard-global" class="dashboard-global">
                 <div class="kpi-container mb-40">
                     <div class="kpi-box">
@@ -55,7 +54,6 @@
                 </div>
             </div>
 
-            <!-- LÉGENDE -->
             <div class="widget mb-20 text-center">
                 <h3 class="legend-title mb-15">Code Couleur des Séances</h3>
                 <div class="legend-wrapper">
@@ -69,7 +67,6 @@
                 </div>
             </div>
 
-            <!-- NIVEAU 2 & 3 : LES ARCHIVES (ACCORDÉONS) -->
             <h2 class="section-title mt-40">Les Préparations</h2>
             <div id="prepas-container">
                 <p class="text-center">Chargement de la matrice...</p>
@@ -96,9 +93,19 @@
             }
         }
 
-        function formatCell(type, detail) {
-            if (type === 'Repos' || !detail) return 'Repos';
-            return `<strong>${type}</strong><br>${detail}`;
+        // Nouvelle logique de formatage (Titre personnalisé OU type, puis KM)
+        function formatCell(type, titre, km) {
+            if (!type || type === 'Repos') return 'Repos';
+            
+            // On prend le titre tapé. S'il est vide, on affiche le type par défaut (ex: Endurance)
+            let displayTitle = (titre && titre.trim() !== '') ? titre : type;
+            let result = `<strong>${displayTitle}</strong>`;
+            
+            // Si on a rentré un chiffre kilométrique, on l'ajoute à la ligne du bas
+            if (km && !isNaN(parseFloat(km))) {
+                result += `<br>${km} km`;
+            }
+            return result;
         }
 
         const colorPalette = ['#ccff00', '#ffffff', '#888888', '#FC4C02', '#444444'];
@@ -150,16 +157,17 @@
                             }
                         }
 
+                        // Intégration des nouvelles variables titre et km
                         lignesTableau += `
                             <tr>
                                 <td><strong>${sem.titre}</strong><br><span class="date-text">${sem.dates}</span></td>
-                                <td class="${getTypeClass(sem.lundi_type)}">${formatCell(sem.lundi_type, sem.lundi_detail)}</td>
-                                <td class="${getTypeClass(sem.mardi_type)}">${formatCell(sem.mardi_type, sem.mardi_detail)}</td>
-                                <td class="${getTypeClass(sem.mercredi_type)}">${formatCell(sem.mercredi_type, sem.mercredi_detail)}</td>
-                                <td class="${getTypeClass(sem.jeudi_type)}">${formatCell(sem.jeudi_type, sem.jeudi_detail)}</td>
-                                <td class="${getTypeClass(sem.vendredi_type)}">${formatCell(sem.vendredi_type, sem.vendredi_detail)}</td>
-                                <td class="${getTypeClass(sem.samedi_type)}">${formatCell(sem.samedi_type, sem.samedi_detail)}</td>
-                                <td class="${getTypeClass(sem.dimanche_type)}">${formatCell(sem.dimanche_type, sem.dimanche_detail)}</td>
+                                <td class="${getTypeClass(sem.lundi_type)}">${formatCell(sem.lundi_type, sem.lundi_titre, sem.lundi_km)}</td>
+                                <td class="${getTypeClass(sem.mardi_type)}">${formatCell(sem.mardi_type, sem.mardi_titre, sem.mardi_km)}</td>
+                                <td class="${getTypeClass(sem.mercredi_type)}">${formatCell(sem.mercredi_type, sem.mercredi_titre, sem.mercredi_km)}</td>
+                                <td class="${getTypeClass(sem.jeudi_type)}">${formatCell(sem.jeudi_type, sem.jeudi_titre, sem.jeudi_km)}</td>
+                                <td class="${getTypeClass(sem.vendredi_type)}">${formatCell(sem.vendredi_type, sem.vendredi_titre, sem.vendredi_km)}</td>
+                                <td class="${getTypeClass(sem.samedi_type)}">${formatCell(sem.samedi_type, sem.samedi_titre, sem.samedi_km)}</td>
+                                <td class="${getTypeClass(sem.dimanche_type)}">${formatCell(sem.dimanche_type, sem.dimanche_titre, sem.dimanche_km)}</td>
                                 <td class="stat-col"><strong>${km} km</strong></td>
                             </tr>
                         `;
