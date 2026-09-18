@@ -259,6 +259,14 @@ header p {
 .training-board th:first-child, .training-board td:first-child { width: 12%; }
 .training-board th:last-child, .training-board td:last-child { width: 10%; }
 
+/* =========================================
+   BIQUOTIDIEN (DOUBLE SÉANCE)
+========================================= */
+.td-split { padding: 0 !important; vertical-align: top; }
+.td-split-container { display: flex; flex-direction: column; height: 100%; min-height: 80px; }
+.session-box { flex: 1; padding: 10px 5px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+.border-b { border-bottom: 2px solid #111; }
+
 /* Légende du tableau */
 .legend-wrapper { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; font-weight: bold; font-size: 0.85rem; }
 .legend-item { padding: 5px 10px; border: 2px solid #111; }
