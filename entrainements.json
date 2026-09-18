@@ -1,6 +1,31 @@
 {
   "liste_prepas": [
     {
+      "nom_prepa": "Semi marathon de Deauville",
+      "annee": "2026",
+      "liste_semaines": [
+        {
+          "mercredi_km": 6.24,
+          "jeudi_km": 3.77,
+          "vendredi_km": 0,
+          "dates": "10/08 - 16/08",
+          "dimanche_type": "Endurance",
+          "samedi_type": "Endurance",
+          "lundi_type": "Renfo",
+          "titre": "S1",
+          "dimanche_km": 5.7,
+          "samedi_km": 8.1,
+          "mardi_type": "Endurance",
+          "lundi_km": 0,
+          "mercredi_type": "Endurance",
+          "jeudi_type": "Endurance",
+          "vendredi_type": "Renfo",
+          "total_km": 28.59,
+          "mardi_km": 4.78
+        }
+      ]
+    },
+    {
       "nom_prepa": "10km de Genève",
       "annee": "2026",
       "liste_semaines": [
@@ -147,31 +172,6 @@
           "vendredi_type": "Repos",
           "samedi_type": "Course", "samedi_titre": "10km de Genève", "samedi_km": 10.00,
           "dimanche_type": "Repos"
-        }
-      ]
-    },
-    {
-      "nom_prepa": "Semi marathon de Deauville",
-      "annee": "2026",
-      "liste_semaines": [
-        {
-          "mercredi_km": 6.24,
-          "jeudi_km": 3.77,
-          "vendredi_km": 0,
-          "dates": "10/08 - 16/08",
-          "dimanche_type": "Endurance",
-          "samedi_type": "Endurance",
-          "lundi_type": "Renfo",
-          "titre": "S1",
-          "dimanche_km": 5.7,
-          "samedi_km": 8.1,
-          "mardi_type": "Endurance",
-          "lundi_km": 0,
-          "mercredi_type": "Endurance",
-          "jeudi_type": "Endurance",
-          "vendredi_type": "Renfo",
-          "total_km": 28.59,
-          "mardi_km": 4.78
         }
       ]
     }
