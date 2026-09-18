@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: main 
+  branch: main
 
 media_folder: "images"
 public_folder: "images"
@@ -48,7 +48,7 @@ collections:
                 value_field: "liste_articles.*.id"
                 required: false
 
-- name: "entrainement"
+  - name: "entrainement"
     label: "Entraînement"
     files:
       - label: "Mes Préparations"
@@ -56,7 +56,7 @@ collections:
         file: "entrainements.json"
         format: "json"
         fields:
-          - label: "Liste des Préparations (ex: Semi Deauville)"
+          - label: "Liste des Préparations"
             name: "liste_prepas"
             widget: "list"
             fields:
