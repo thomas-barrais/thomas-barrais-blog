@@ -48,9 +48,13 @@
                 let htmlCartes = ''; // On prépare une boîte vide pour le HTML
 
                 // On boucle sur chaque article du fichier JSON
+                // On boucle sur chaque article du fichier JSON
                 articles.forEach(article => {
 
                     let baliseImage = article.image ? `<img src="${article.image}" alt="Illustration" style="width:100%; border: 2px solid #111; margin-bottom: 15px;">` : '';
+                    
+                    // On prépare le bouton Strava s'il y a un lien
+                    let boutonStrava = article.lien_strava ? `<a href="${article.lien_strava}" target="_blank" class="btn-strava">Kudos &rarr;</a>` : '';
 
                     htmlCartes += `
                     <article class="article-card">
@@ -58,7 +62,10 @@
                         <h3>${article.titre}</h3>
                         <p class="date">${article.date}</p>
                         <p>${article.resume}</p>
-                        <a href="article.html?id=${article.id}" class="btn-read">Lire la suite &rarr;</a>
+                        <div style="margin-top: 15px;">
+                            <a href="article.html?id=${article.id}" class="btn-read">Lire la suite</a>
+                            ${boutonStrava}
+                        </div>
                     </article>
                     `;
                 });
