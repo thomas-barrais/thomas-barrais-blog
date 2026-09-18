@@ -104,6 +104,30 @@
           "total_km": 28.59
         }
       ]
+    },
+    {
+      "nom_prepa": "10km de Genève",
+      "annee": "2026",
+      "liste_semaines": [
+        {
+          "dimanche_detail": "15.05",
+          "dates": "16/02 - 22/02",
+          "lundi_detail": "6,02",
+          "mardi_detail": "7,46",
+          "dimanche_type": "Endurance",
+          "samedi_type": "Repos",
+          "lundi_type": "Endurance",
+          "mercredi_detail": "7,66",
+          "jeudi_detail": "9,02",
+          "titre": "S1",
+          "vendredi_detail": "10.01",
+          "mardi_type": "Endurance",
+          "mercredi_type": "Tempo",
+          "jeudi_type": "Endurance",
+          "vendredi_type": "Intervalles",
+          "total_km": 55.22
+        }
+      ]
     }
   ]
 }
