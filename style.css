@@ -197,7 +197,7 @@ header p {
 /* Conteneurs et espacements génériques */
 .layout-block { display: block; }
 .full-width { width: 100%; }
-.max-w-1200 { max-width: 1200px; margin: 40px auto; }
+.max-w-1600 { max-width: 1600px; margin: 40px auto; } /* Beaucoup plus large ! */
 .mb-15 { margin-bottom: 15px; }
 .mb-20 { margin-bottom: 20px; }
 .mb-40 { margin-bottom: 40px; }
@@ -207,6 +207,18 @@ header p {
 .date-text { font-size: 0.75rem; font-weight: normal; }
 .year-text { color: #666; font-size: 1.5rem; }
 .text-error { color: red; }
+
+/* Nouveau style pour le tableau large */
+.training-board table {
+    min-width: 1100px; /* Force le tableau à être bien large */
+    table-layout: fixed; /* Toutes les colonnes font la même taille */
+}
+.training-board th:first-child, .training-board td:first-child { 
+    width: 12%; /* La colonne "Semaine" un poil plus large */
+}
+.training-board th:last-child, .training-board td:last-child { 
+    width: 10%; /* La colonne "Total" */
+}
 
 /* Légende du tableau */
 .legend-wrapper { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; font-weight: bold; font-size: 0.85rem; }
