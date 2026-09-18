@@ -93,17 +93,16 @@
             }
         }
 
-        // Nouvelle logique de formatage (Titre personnalisé OU type, puis KM)
-        function formatCell(type, titre, km) {
+        function formatCell(type, titre, km, oldDetail) {
             if (!type || type === 'Repos') return 'Repos';
             
-            // On prend le titre tapé. S'il est vide, on affiche le type par défaut (ex: Endurance)
             let displayTitle = (titre && titre.trim() !== '') ? titre : type;
             let result = `<strong>${displayTitle}</strong>`;
             
-            // Si on a rentré un chiffre kilométrique, on l'ajoute à la ligne du bas
-            if (km && !isNaN(parseFloat(km))) {
+            if (km !== undefined && km !== null && km !== '' && parseFloat(km) > 0) {
                 result += `<br>${km} km`;
+            } else if (oldDetail !== undefined && oldDetail !== null && oldDetail !== '') {
+                result += `<br>${oldDetail}`;
             }
             return result;
         }
@@ -135,44 +134,92 @@
                     let lignesTableau = '';
                     let labelsGraphiquePrepa = [];
                     let datasGraphiquePrepa = [];
-                    const anneeCourante = prepa.annee || "Inconnue";
-
-                    if (!anneesData[anneeCourante]) {
-                        anneesData[anneeCourante] = Array(12).fill(0);
-                    }
+                    
+                    // On récupère l'année de la prépa (ex: 2026)
+                    let anneeTracker = parseInt(prepa.annee) || new Date().getFullYear();
+                    let moisPrecedent = -1;
 
                     grandTotalSemaines += semaines.length;
 
                     semaines.forEach(sem => {
-                        const km = parseFloat(sem.total_km) || 0;
-                        grandTotalKm += km;
-                        labelsGraphiquePrepa.push(sem.titre);
-                        datasGraphiquePrepa.push(km);
+                        const totalKmSemaine = parseFloat(sem.total_km) || 0;
+                        grandTotalKm += totalKmSemaine;
+                        labelsGraphiquePrepa.push(sem.titre || `S${semaines.indexOf(sem)+1}`);
+                        datasGraphiquePrepa.push(totalKmSemaine);
 
-                        const moisMatch = sem.dates.match(/\d{2}\/(\d{2})/);
-                        if (moisMatch && moisMatch[1]) {
-                            const moisIndex = parseInt(moisMatch[1], 10) - 1;
-                            if (moisIndex >= 0 && moisIndex <= 11) {
-                                anneesData[anneeCourante][moisIndex] += km;
+                        // MOTEUR TEMPOREL BLINDÉ
+                        try {
+                            if (sem.dates && sem.dates.includes('-')) {
+                                const startStr = sem.dates.split('-')[0].trim(); // ex: "10/08"
+                                const [startDayStr, startMonthStr] = startStr.split('/');
+                                
+                                if (startDayStr && startMonthStr) {
+                                    const startMonth = parseInt(startMonthStr) - 1; // 0 (Janvier) à 11 (Décembre)
+                                    const startDay = parseInt(startDayStr);
+
+                                    // Si on passe de Décembre (11) à Janvier (0), on augmente l'année
+                                    if (moisPrecedent === 11 && startMonth === 0) {
+                                        anneeTracker++;
+                                    }
+                                    moisPrecedent = startMonth;
+
+                                    // Initialisation du calendrier sur le Lundi de cette semaine
+                                    let currentDate = new Date(anneeTracker, startMonth, startDay);
+
+                                    // Récupération des kilomètres jour par jour (zéro par défaut si case vide ou repos)
+                                    const dailyKms = [
+                                        parseFloat(sem.lundi_km) || 0,
+                                        parseFloat(sem.mardi_km) || 0,
+                                        parseFloat(sem.mercredi_km) || 0,
+                                        parseFloat(sem.jeudi_km) || 0,
+                                        parseFloat(sem.vendredi_km) || 0,
+                                        parseFloat(sem.samedi_km) || 0,
+                                        parseFloat(sem.dimanche_km) || 0
+                                    ];
+
+                                    // On boucle strictement sur les 7 jours de la semaine
+                                    for (let i = 0; i < 7; i++) {
+                                        let kmForDay = dailyKms[i];
+                                        
+                                        if (kmForDay > 0) {
+                                            let actualMonth = currentDate.getMonth();
+                                            let actualYear = currentDate.getFullYear().toString();
+                                            
+                                            // Création du tableau de l'année s'il n'existe pas encore
+                                            if (!anneesData[actualYear]) {
+                                                anneesData[actualYear] = Array(12).fill(0);
+                                            }
+                                            
+                                            // Ajout des KM au mois correspondant exactement à ce jour
+                                            anneesData[actualYear][actualMonth] += kmForDay;
+                                        }
+                                        
+                                        // Le calendrier avance d'un jour, changeant de mois ou d'année tout seul si nécessaire
+                                        currentDate.setDate(currentDate.getDate() + 1);
+                                    }
+                                }
                             }
+                        } catch (e) {
+                            console.error("Erreur de calcul des dates sur une semaine : ", e);
                         }
 
-                        // Intégration des nouvelles variables titre et km
+                        // Création du tableau HTML
                         lignesTableau += `
                             <tr>
-                                <td><strong>${sem.titre}</strong><br><span class="date-text">${sem.dates}</span></td>
-                                <td class="${getTypeClass(sem.lundi_type)}">${formatCell(sem.lundi_type, sem.lundi_titre, sem.lundi_km)}</td>
-                                <td class="${getTypeClass(sem.mardi_type)}">${formatCell(sem.mardi_type, sem.mardi_titre, sem.mardi_km)}</td>
-                                <td class="${getTypeClass(sem.mercredi_type)}">${formatCell(sem.mercredi_type, sem.mercredi_titre, sem.mercredi_km)}</td>
-                                <td class="${getTypeClass(sem.jeudi_type)}">${formatCell(sem.jeudi_type, sem.jeudi_titre, sem.jeudi_km)}</td>
-                                <td class="${getTypeClass(sem.vendredi_type)}">${formatCell(sem.vendredi_type, sem.vendredi_titre, sem.vendredi_km)}</td>
-                                <td class="${getTypeClass(sem.samedi_type)}">${formatCell(sem.samedi_type, sem.samedi_titre, sem.samedi_km)}</td>
-                                <td class="${getTypeClass(sem.dimanche_type)}">${formatCell(sem.dimanche_type, sem.dimanche_titre, sem.dimanche_km)}</td>
-                                <td class="stat-col"><strong>${km} km</strong></td>
+                                <td><strong>${sem.titre || '-'}</strong><br><span class="date-text">${sem.dates || ''}</span></td>
+                                <td class="${getTypeClass(sem.lundi_type)}">${formatCell(sem.lundi_type, sem.lundi_titre, sem.lundi_km, sem.lundi_detail)}</td>
+                                <td class="${getTypeClass(sem.mardi_type)}">${formatCell(sem.mardi_type, sem.mardi_titre, sem.mardi_km, sem.mardi_detail)}</td>
+                                <td class="${getTypeClass(sem.mercredi_type)}">${formatCell(sem.mercredi_type, sem.mercredi_titre, sem.mercredi_km, sem.mercredi_detail)}</td>
+                                <td class="${getTypeClass(sem.jeudi_type)}">${formatCell(sem.jeudi_type, sem.jeudi_titre, sem.jeudi_km, sem.jeudi_detail)}</td>
+                                <td class="${getTypeClass(sem.vendredi_type)}">${formatCell(sem.vendredi_type, sem.vendredi_titre, sem.vendredi_km, sem.vendredi_detail)}</td>
+                                <td class="${getTypeClass(sem.samedi_type)}">${formatCell(sem.samedi_type, sem.samedi_titre, sem.samedi_km, sem.samedi_detail)}</td>
+                                <td class="${getTypeClass(sem.dimanche_type)}">${formatCell(sem.dimanche_type, sem.dimanche_titre, sem.dimanche_km, sem.dimanche_detail)}</td>
+                                <td class="stat-col"><strong>${totalKmSemaine} km</strong></td>
                             </tr>
                         `;
                     });
 
+                    // Assemblage des blocs Prépa
                     const isFirst = index === 0;
                     const activeClassBtn = isFirst ? 'active' : '';
                     const showClassContent = isFirst ? 'show' : '';
@@ -180,7 +227,7 @@
 
                     const prepaHtml = `
                         <button class="accordion-btn ${activeClassBtn}">
-                            ${prepa.nom_prepa} (${anneeCourante})
+                            ${prepa.nom_prepa} (${prepa.annee})
                             <span class="acc-icon">${arrow}</span>
                         </button>
                         <div class="accordion-content ${showClassContent}">
@@ -217,6 +264,7 @@
                     
                     container.insertAdjacentHTML('beforeend', prepaHtml);
 
+                    // Allumage du graphique de la prépa
                     const ctxPrepa = document.getElementById(idCanvas).getContext('2d');
                     new Chart(ctxPrepa, {
                         type: 'bar',
@@ -237,6 +285,7 @@
                     });
                 });
 
+                // Activation des accordéons
                 const accordions = document.querySelectorAll('.accordion-btn');
                 accordions.forEach(acc => {
                     acc.addEventListener('click', function() {
@@ -252,11 +301,13 @@
                     });
                 });
 
+                // Mise à jour des compteurs
                 document.getElementById('dashboard-global').style.display = 'block';
                 document.getElementById('kpi-km').innerText = Math.round(grandTotalKm);
                 document.getElementById('kpi-semaines').innerText = grandTotalSemaines;
                 document.getElementById('kpi-prepas').innerText = prepas.length;
 
+                // Construction du graphique annuel
                 const ctxAnnuel = document.getElementById('graphiqueAnnuel').getContext('2d');
                 const datasetsAnnuel = [];
                 let colorIndex = 0;
@@ -264,7 +315,7 @@
                 for (const [annee, dataMois] of Object.entries(anneesData)) {
                     datasetsAnnuel.push({
                         label: `Volume ${annee}`,
-                        data: dataMois,
+                        data: dataMois.map(val => Math.round(val * 100) / 100), // Arrondi à 2 décimales pour un rendu propre
                         borderColor: colorPalette[colorIndex % colorPalette.length],
                         backgroundColor: colorPalette[colorIndex % colorPalette.length],
                         tension: 0.3,
