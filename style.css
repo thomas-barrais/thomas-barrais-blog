@@ -325,15 +325,21 @@ th { background-color: #111; color: #fff; text-transform: uppercase; }
     display: inline-block;
     background-color: #FC4C02; /* Orange Strava */
     color: #fff;
-    padding: 10px 20px; /* Même padding que btn-read */
+    padding: 10px 20px;
     text-decoration: none;
     font-weight: bold;
     font-size: 0.9rem;
     text-transform: uppercase;
-    transition: opacity 0.3s;
-    border: 2px solid #FC4C02; /* Même taille de bordure que btn-read pour aligner la hauteur */
+    transition: all 0.2s ease; /* On anime tout doucement, comme le bouton noir */
+    border: 2px solid #FC4C02; /* On crée la bordure orange dès le début */
     border-radius: 3px;
     margin-left: 10px;
+}
+
+.btn-strava:hover {
+    background-color: #fff; /* Le fond devient blanc */
+    color: #FC4C02; /* Le texte devient orange */
+    border: 2px solid #FC4C02; /* On maintient la bordure orange */
 }
 
 /* =========================================
