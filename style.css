@@ -262,10 +262,28 @@ header p {
 /* =========================================
    BIQUOTIDIEN (DOUBLE SÉANCE)
 ========================================= */
-.td-split { padding: 0 !important; vertical-align: top; }
-.td-split-container { display: flex; flex-direction: column; height: 100%; min-height: 80px; }
-.session-box { flex: 1; padding: 10px 5px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-.border-b { border-bottom: 2px solid #111; }
+.td-split { 
+    padding: 0 !important; 
+    height: 1px; /* L'astuce magique : force la cellule à faire toute la hauteur de la ligne */
+}
+.td-split-container { 
+    display: flex; 
+    flex-direction: column; 
+    height: 100%; /* Le conteneur prend tout l'espace disponible */
+    width: 100%;
+}
+.session-box { 
+    flex: 1; /* S'il y a 1 séance, elle prend 100%. S'il y en a 2, elles font 50/50 */
+    padding: 10px 5px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+}
+.border-b { 
+    border-bottom: 2px solid #111; 
+}
+
 
 /* Légende du tableau */
 .legend-wrapper { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; font-weight: bold; font-size: 0.85rem; }
