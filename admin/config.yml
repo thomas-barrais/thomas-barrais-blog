@@ -45,3 +45,4 @@ collections:
                 search_fields: ["liste_articles.*.titre"]
                 display_fields: ["liste_articles.*.titre"]
                 value_field: "liste_articles.*.id"
+                required: false
