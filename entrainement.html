@@ -92,31 +92,26 @@
                 case 'Course': return 'c-course';
                 case 'Vélo': return 'c-velo';
                 case 'Renfo': return 'c-renfo';
-                case 'Marche': return 'c-marche';
-                case 'Natation': return 'c-natation';
                 case 'Trail': return 'c-trail';
+                case 'Natation': return 'c-natation';
+                case 'Marche': return 'c-marche';
                 case 'Repos': 
                 case 'Aucun':
                 default: return 'c-repos';
             }
         }
 
-        // Nouvelle fonction gérant la séparation verticale (Biquotidien)
         function formatCell(type1, titre1, km1, type2, titre2, km2) {
             let html = '<div class="td-split-container">';
             
-            // Gestion de la Séance 1
             let t1 = (!type1 || type1 === '') ? 'Repos' : type1;
             let displayTitle1 = (titre1 && titre1.trim() !== '') ? titre1 : t1;
             let kmText1 = (km1 && parseFloat(km1) > 0) ? `<br>${km1} km` : '';
             
-            // Détection d'une vraie Séance 2
             let hasSession2 = (type2 && type2 !== 'Repos' && type2 !== 'Aucun' && type2 !== '');
             
-            // Affichage de la Séance 1 (avec une bordure noire en bas si la séance 2 existe)
             html += `<div class="session-box ${getTypeClass(t1)} ${hasSession2 ? 'border-b' : ''}"><strong>${displayTitle1}</strong>${kmText1}</div>`;
             
-            // Affichage de la Séance 2
             if (hasSession2) {
                 let displayTitle2 = (titre2 && titre2.trim() !== '') ? titre2 : type2;
                 let kmText2 = (km2 && parseFloat(km2) > 0) ? `<br>${km2} km` : '';
@@ -141,7 +136,29 @@
                     return;
                 }
 
-                prepas.sort((a, b) => parseInt(b.annee) - parseInt(a.annee));
+                // --- CALCUL DE L'ANNÉE DE LA COURSE (AFFICHAGE ET TRI) ---
+                prepas.forEach(prepa => {
+                    let anneeCourse = parseInt(prepa.annee) || new Date().getFullYear();
+                    const semaines = prepa.liste_semaines || [];
+                    if (semaines.length > 0) {
+                        try {
+                            let moisDebut = parseInt(semaines[0].dates.split('-')[0].trim().split('/')[1]);
+                            let moisFin = parseInt(semaines[semaines.length - 1].dates.split('-')[0].trim().split('/')[1]);
+                            
+                            // Si la semaine 1 commence à un mois plus grand que la dernière semaine (ex: 12 > 3), 
+                            // cela veut dire que l'on a franchi le Nouvel An.
+                            if (moisDebut > moisFin) {
+                                anneeCourse += 1;
+                            }
+                        } catch (e) {
+                            console.error("Erreur lecture mois :", e);
+                        }
+                    }
+                    prepa.anneeCourse = anneeCourse; // On stocke l'année de l'objectif
+                });
+
+                // On trie maintenant les accordéons selon cette année d'objectif finale !
+                prepas.sort((a, b) => b.anneeCourse - a.anneeCourse);
 
                 let grandTotalKm = 0;
                 let grandTotalSemaines = 0;
@@ -155,6 +172,7 @@
                     let labelsGraphiquePrepa = [];
                     let datasGraphiquePrepa = [];
                     
+                    // Le tracker temporel pour les graphiques démarre bien à l'année du CMS (début)
                     let anneeTracker = parseInt(prepa.annee) || new Date().getFullYear();
                     let moisPrecedent = -1;
 
@@ -175,6 +193,7 @@
                                     const startMonth = parseInt(startMonthStr) - 1;
                                     const startDay = parseInt(startDayStr);
 
+                                    // Si on passe de Décembre (11) à Janvier (0), le tracker incrémente
                                     if (moisPrecedent === 11 && startMonth === 0) {
                                         anneeTracker++;
                                     }
@@ -182,7 +201,6 @@
 
                                     let currentDate = new Date(anneeTracker, startMonth, startDay);
 
-                                    // L'addition magique : on somme la séance 1 et la séance 2 pour le jour J
                                     const dailyKms = [
                                         (parseFloat(sem.lundi_km) || 0) + (parseFloat(sem.lundi_km_2) || 0),
                                         (parseFloat(sem.mardi_km) || 0) + (parseFloat(sem.mardi_km_2) || 0),
@@ -214,7 +232,6 @@
                             console.error("Erreur de calcul des dates sur une semaine : ", e);
                         }
 
-                        // Création du tableau HTML avec appel de la nouvelle fonction formatCell (6 paramètres)
                         lignesTableau += `
                             <tr>
                                 <td><strong>${sem.titre || '-'}</strong><br><span class="date-text">${sem.dates || ''}</span></td>
@@ -237,7 +254,7 @@
 
                     const prepaHtml = `
                         <button class="accordion-btn ${activeClassBtn}">
-                            ${prepa.nom_prepa} (${prepa.annee})
+                            ${prepa.nom_prepa} (${prepa.anneeCourse}) <!-- L'affichage de l'année magique ! -->
                             <span class="acc-icon">${arrow}</span>
                         </button>
                         <div class="accordion-content ${showClassContent}">
