@@ -1010,7 +1010,7 @@
           "mercredi_type": "Endurance", "mercredi_km": 6.00,
           "jeudi_type": "Endurance", "jeudi_km": 12.10, "jeudi_type_2": "Renfo", "jeudi_km_2": 0.00,
           "vendredi_type": "Repos",
-          "samedi_type": "Tempo", "samedi_km": 28.00,
+          "samedi_type": "SL Allure", "samedi_km": 28.00,
           "dimanche_type": "Trail", "dimanche_km": 6.01
         },
         {
@@ -1035,7 +1035,7 @@
           "jeudi_type": "Endurance", "jeudi_km": 6.20,
           "vendredi_type": "Tempo", "vendredi_km": 12.14,
           "samedi_type": "Trail", "samedi_km": 8.66,
-          "dimanche_type": "Trail", "dimanche_km": 25.70
+          "dimanche_type": "SL", "dimanche_titre": "Semi marathon de Paris", "dimanche_km": 21.10, "dimanche_type_2": "Trail", "dimanche_km_2": 4.6
         },
         {
           "titre": "S11",
