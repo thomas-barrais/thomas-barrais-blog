@@ -7,26 +7,79 @@
         {
           "titre": "S1",
           "dates": "10/08 - 16/08",
-          "total_km": 28.59,
-          "lundi_type": "Renfo",
-          "lundi_km": 0,
-          "mardi_type": "Endurance",
-          "mardi_km": 4.78,
-          "mercredi_type": "Endurance",
-          "mercredi_km": 6.24,
-          "jeudi_type": "Endurance",
-          "jeudi_km": 3.77,
-          "vendredi_type": "Renfo",
-          "vendredi_km": 0,
-          "samedi_type": "Endurance",
-          "samedi_km": 8.1,
-          "dimanche_type": "Endurance",
-          "dimanche_km": 5.7
+          "total_km": 29.09,
+          "lundi_type": "Renfo", "lundi_km": 0.00,
+          "mardi_type": "Endurance", "mardi_km": 4.78,
+          "mercredi_type": "Endurance", "mercredi_km": 6.24,
+          "jeudi_type": "Endurance", "jeudi_km": 3.77,
+          "vendredi_type": "Renfo", "vendredi_km": 0.00,
+          "samedi_type": "Endurance", "samedi_km": 7.90,
+          "dimanche_type": "SL", "dimanche_km": 6.40
+        },
+        {
+          "titre": "S2",
+          "dates": "17/08 - 23/08",
+          "total_km": 23.78,
+          "lundi_type": "Repos",
+          "mardi_type": "Repos",
+          "mercredi_type": "Tempo", "mercredi_titre": "6 x 3' r1'30", "mercredi_km": 7.13,
+          "jeudi_type": "Repos",
+          "vendredi_type": "Repos",
+          "samedi_type": "Intervalles", "samedi_titre": "8 x 1' r1'", "samedi_km": 6.64,
+          "dimanche_type": "Trail", "dimanche_km": 10.01
+        },
+        {
+          "titre": "S3",
+          "dates": "24/08 - 30/08",
+          "total_km": 22.17,
+          "lundi_type": "Repos",
+          "mardi_type": "Endurance", "mardi_titre": "5 x 4' r2'", "mardi_km": 5.50,
+          "mercredi_type": "Repos",
+          "jeudi_type": "Endurance", "jeudi_titre": "10 x 1' r1'", "jeudi_km": 8.84,
+          "vendredi_type": "Repos",
+          "samedi_type": "Repos",
+          "dimanche_type": "SL", "dimanche_km": 7.83
+        },
+        {
+          "titre": "S4",
+          "dates": "31/08 - 06/09",
+          "total_km": 33.14,
+          "lundi_type": "Repos",
+          "mardi_type": "Endurance", "mardi_km": 7.46,
+          "mercredi_type": "Tempo", "mercredi_titre": "5x400m r1'", "mercredi_km": 5.64,
+          "jeudi_type": "Repos",
+          "vendredi_type": "Endurance", "vendredi_km": 7.47,
+          "samedi_type": "Repos",
+          "dimanche_type": "SL", "dimanche_titre": "2x14' @5:10 r2'", "dimanche_km": 12.57
+        },
+        {
+          "titre": "S5",
+          "dates": "07/09 - 13/09",
+          "total_km": 34.31,
+          "lundi_type": "Renfo", "lundi_km": 0.00,
+          "mardi_type": "Endurance", "mardi_km": 4.74,
+          "mercredi_type": "Intervalles", "mercredi_titre": "10x 1' r1'", "mercredi_km": 8.83,
+          "jeudi_type": "Endurance", "jeudi_km": 4.88,
+          "vendredi_type": "Repos",
+          "samedi_type": "Tempo", "samedi_titre": "8x 1' r1'", "samedi_km": 6.75,
+          "dimanche_type": "SL", "dimanche_km": 9.05
+        },
+        {
+          "titre": "S6",
+          "dates": "14/09 - 20/09",
+          "total_km": 43.38,
+          "lundi_type": "Renfo", "lundi_km": 0.00,
+          "mardi_type": "Tempo", "mardi_titre": "4x 6' r2' @4:22", "mardi_km": 11.56,
+          "mercredi_type": "Endurance", "mercredi_km": 7.16,
+          "jeudi_type": "Intervalles", "jeudi_titre": "4x(2' @4 3' @4:30) r2'", "jeudi_km": 3.41,
+          "vendredi_type": "Repos",
+          "samedi_type": "Endurance", "samedi_km": 7.45,
+          "dimanche_type": "SL", "dimanche_km": 13.80
         }
       ]
     },
     {
-      "nom_prepa": "Transition Printemps-Été",
+      "nom_prepa": "Transition",
       "annee": "2026",
       "liste_semaines": [
         {
@@ -524,7 +577,7 @@
       ]
     },
     {
-      "nom_prepa": "Vide Intersidéral (Convalescence)",
+      "nom_prepa": "Convalescence",
       "annee": "2025",
       "liste_semaines": [
         {
@@ -740,7 +793,7 @@
       ]
     },
     {
-      "nom_prepa": "Trail du Saint Jacques",
+      "nom_prepa": "Trail du Saint Jacques by UTMB",
       "annee": "2025",
       "liste_semaines": [
         {
