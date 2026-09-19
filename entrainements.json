@@ -51,7 +51,7 @@
           "jeudi_type": "Repos",
           "vendredi_type": "Endurance", "vendredi_km": 4.39,
           "samedi_type": "Endurance", "samedi_km": 6.06,
-          "dimanche_type": "Tempo", "dimanche_km": 10.72
+          "dimanche_type": "Course", "dimanche_titre": "Trail de Thoiry", "dimanche_km": 10.72
         },
         {
           "titre": "S3",
@@ -63,7 +63,7 @@
           "jeudi_type": "Tempo", "jeudi_km": 8.20,
           "vendredi_type": "Repos",
           "samedi_type": "Endurance", "samedi_km": 6.42,
-          "dimanche_type": "Course", "dimanche_titre": "Trail de Thoiry", "dimanche_km": 13.25
+          "dimanche_type": "Endurance", "dimanche_km": 13.25
         },
         {
           "titre": "S4",
