@@ -124,11 +124,25 @@
       "article": "cr-ecotrail-paris-2025"
     },
     {
+      "date": "9/03/2025",
+      "nom": "Semi marathon de Paris",
+      "distance": 21.1,
+      "denivele": 50,
+      "chrono": "2:07:0"
+    },
+    {
       "date": "02/03/2025",
       "nom": "« 10km » rft",
       "chrono": "0:42:38",
       "distance": 9.49,
       "denivele": 53
+    },
+    {
+      "date": "1/12/2024",
+      "nom": "Les 40 bosses - 45km",
+      "distance": 45.92,
+      "denivele": 2203,
+      "chrono": "6:19:22"
     },
     {
       "date": "17/11/2024",
