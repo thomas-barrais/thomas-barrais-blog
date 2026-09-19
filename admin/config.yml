@@ -71,51 +71,51 @@ collections:
                   - {label: "Dates", name: "dates", widget: "string"}
                   - {label: "Total KM", name: "total_km", widget: "number", value_type: "float"}
                   
-                  - {label: "Lundi S1 (Type)", name: "lundi_type", widget: "select", options: ["Marche", "Repos", "Endurance", "Tempo", "Intervalles", "SL", "SL Allure", "Renfo", "Course", "Vélo"], default: "Repos"}
+                  - {label: "Lundi S1 (Type)", name: "lundi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Intervalles", "SL", "SL Allure", "Renfo", "Course", "Vélo", "Marche", "Natation"], default: "Repos"}
                   - {label: "Lundi S1 (Titre)", name: "lundi_titre", widget: "string", required: false}
                   - {label: "Lundi S1 (KM)", name: "lundi_km", widget: "number", value_type: "float", required: false}
-                  - {label: "Lundi S2 (Type)", name: "lundi_type_2", widget: "select", options: ["Aucun","Marche",  "Repos", "Endurance", "Tempo", "Intervalles", "SL", "SL Allure", "Renfo", "Course", "Vélo"], default: "Aucun", required: false}
+                  - {label: "Lundi S2 (Type)", name: "lundi_type_2", widget: "select", options: ["Aucun", "Repos", "Endurance", "Tempo", "Intervalles", "SL", "SL Allure", "Renfo", "Course", "Vélo", "Marche", "Natation"], default: "Aucun", required: false}
                   - {label: "Lundi S2 (Titre)", name: "lundi_titre_2", widget: "string", required: false}
                   - {label: "Lundi S2 (KM)", name: "lundi_km_2", widget: "number", value_type: "float", required: false}
                   
-                  - {label: "Mardi S1 (Type)", name: "mardi_type", widget: "select", options: ["Marche", "Repos", "Endurance", "Tempo", "Intervalles", "SL", "SL Allure", "Renfo", "Course", "Vélo"], default: "Repos"}
+                  - {label: "Mardi S1 (Type)", name: "mardi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Intervalles", "SL", "SL Allure", "Renfo", "Course", "Vélo", "Marche", "Natation"], default: "Repos"}
                   - {label: "Mardi S1 (Titre)", name: "mardi_titre", widget: "string", required: false}
                   - {label: "Mardi S1 (KM)", name: "mardi_km", widget: "number", value_type: "float", required: false}
-                  - {label: "Mardi S2 (Type)", name: "mardi_type_2", widget: "select", options: ["Aucun","Marche",  "Repos", "Endurance", "Tempo", "Intervalles", "SL", "SL Allure", "Renfo", "Course", "Vélo"], default: "Aucun", required: false}
+                  - {label: "Mardi S2 (Type)", name: "mardi_type_2", widget: "select", options: ["Aucun", "Repos", "Endurance", "Tempo", "Intervalles", "SL", "SL Allure", "Renfo", "Course", "Vélo", "Marche", "Natation"], default: "Aucun", required: false}
                   - {label: "Mardi S2 (Titre)", name: "mardi_titre_2", widget: "string", required: false}
                   - {label: "Mardi S2 (KM)", name: "mardi_km_2", widget: "number", value_type: "float", required: false}
                   
-                  - {label: "Mercredi S1 (Type)", name: "mercredi_type", widget: "select", options: ["Marche", "Repos", "Endurance", "Tempo", "Intervalles", "SL", "SL Allure", "Renfo", "Course", "Vélo"], default: "Repos"}
+                  - {label: "Mercredi S1 (Type)", name: "mercredi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Intervalles", "SL", "SL Allure", "Renfo", "Course", "Vélo", "Marche", "Natation"], default: "Repos"}
                   - {label: "Mercredi S1 (Titre)", name: "mercredi_titre", widget: "string", required: false}
                   - {label: "Mercredi S1 (KM)", name: "mercredi_km", widget: "number", value_type: "float", required: false}
-                  - {label: "Mercredi S2 (Type)", name: "mercredi_type_2", widget: "select", options: ["Aucun","Marche",  "Repos", "Endurance", "Tempo", "Intervalles", "SL", "SL Allure", "Renfo", "Course", "Vélo"], default: "Aucun", required: false}
+                  - {label: "Mercredi S2 (Type)", name: "mercredi_type_2", widget: "select", options: ["Aucun", "Repos", "Endurance", "Tempo", "Intervalles", "SL", "SL Allure", "Renfo", "Course", "Vélo", "Marche", "Natation"], default: "Aucun", required: false}
                   - {label: "Mercredi S2 (Titre)", name: "mercredi_titre_2", widget: "string", required: false}
                   - {label: "Mercredi S2 (KM)", name: "mercredi_km_2", widget: "number", value_type: "float", required: false}
                   
-                  - {label: "Jeudi S1 (Type)", name: "jeudi_type", widget: "select", options: ["Marche", "Repos", "Endurance", "Tempo", "Intervalles", "SL", "SL Allure", "Renfo", "Course", "Vélo"], default: "Repos"}
+                  - {label: "Jeudi S1 (Type)", name: "jeudi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Intervalles", "SL", "SL Allure", "Renfo", "Course", "Vélo", "Marche", "Natation"], default: "Repos"}
                   - {label: "Jeudi S1 (Titre)", name: "jeudi_titre", widget: "string", required: false}
                   - {label: "Jeudi S1 (KM)", name: "jeudi_km", widget: "number", value_type: "float", required: false}
-                  - {label: "Jeudi S2 (Type)", name: "jeudi_type_2", widget: "select", options: ["Aucun","Marche",  "Repos", "Endurance", "Tempo", "Intervalles", "SL", "SL Allure", "Renfo", "Course", "Vélo"], default: "Aucun", required: false}
+                  - {label: "Jeudi S2 (Type)", name: "jeudi_type_2", widget: "select", options: ["Aucun", "Repos", "Endurance", "Tempo", "Intervalles", "SL", "SL Allure", "Renfo", "Course", "Vélo", "Marche", "Natation"], default: "Aucun", required: false}
                   - {label: "Jeudi S2 (Titre)", name: "jeudi_titre_2", widget: "string", required: false}
                   - {label: "Jeudi S2 (KM)", name: "jeudi_km_2", widget: "number", value_type: "float", required: false}
                   
-                  - {label: "Vendredi S1 (Type)", name: "vendredi_type", widget: "select", options: ["Marche", "Repos", "Endurance", "Tempo", "Intervalles", "SL", "SL Allure", "Renfo", "Course", "Vélo"], default: "Repos"}
+                  - {label: "Vendredi S1 (Type)", name: "vendredi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Intervalles", "SL", "SL Allure", "Renfo", "Course", "Vélo", "Marche", "Natation"], default: "Repos"}
                   - {label: "Vendredi S1 (Titre)", name: "vendredi_titre", widget: "string", required: false}
                   - {label: "Vendredi S1 (KM)", name: "vendredi_km", widget: "number", value_type: "float", required: false}
-                  - {label: "Vendredi S2 (Type)", name: "vendredi_type_2", widget: "select", options: ["Aucun","Marche",  "Repos", "Endurance", "Tempo", "Intervalles", "SL", "SL Allure", "Renfo", "Course", "Vélo"], default: "Aucun", required: false}
+                  - {label: "Vendredi S2 (Type)", name: "vendredi_type_2", widget: "select", options: ["Aucun", "Repos", "Endurance", "Tempo", "Intervalles", "SL", "SL Allure", "Renfo", "Course", "Vélo", "Marche", "Natation"], default: "Aucun", required: false}
                   - {label: "Vendredi S2 (Titre)", name: "vendredi_titre_2", widget: "string", required: false}
                   - {label: "Vendredi S2 (KM)", name: "vendredi_km_2", widget: "number", value_type: "float", required: false}
                   
-                  - {label: "Samedi S1 (Type)", name: "samedi_type", widget: "select", options: ["Marche", "Repos", "Endurance", "Tempo", "Intervalles", "SL", "SL Allure", "Renfo", "Course", "Vélo"], default: "Repos"}
+                  - {label: "Samedi S1 (Type)", name: "samedi_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Intervalles", "SL", "SL Allure", "Renfo", "Course", "Vélo", "Marche", "Natation"], default: "Repos"}
                   - {label: "Samedi S1 (Titre)", name: "samedi_titre", widget: "string", required: false}
                   - {label: "Samedi S1 (KM)", name: "samedi_km", widget: "number", value_type: "float", required: false}
-                  - {label: "Samedi S2 (Type)", name: "samedi_type_2", widget: "select", options: ["Aucun", "Marche", "Repos", "Endurance", "Tempo", "Intervalles", "SL", "SL Allure", "Renfo", "Course", "Vélo"], default: "Aucun", required: false}
+                  - {label: "Samedi S2 (Type)", name: "samedi_type_2", widget: "select", options: ["Aucun", "Repos", "Endurance", "Tempo", "Intervalles", "SL", "SL Allure", "Renfo", "Course", "Vélo", "Marche", "Natation"], default: "Aucun", required: false}
                   - {label: "Samedi S2 (Titre)", name: "samedi_titre_2", widget: "string", required: false}
                   - {label: "Samedi S2 (KM)", name: "samedi_km_2", widget: "number", value_type: "float", required: false}
                   
-                  - {label: "Dimanche S1 (Type)", name: "dimanche_type", widget: "select", options: ["Marche", "Repos", "Endurance", "Tempo", "Intervalles", "SL", "SL Allure", "Renfo", "Course", "Vélo"], default: "Repos"}
+                  - {label: "Dimanche S1 (Type)", name: "dimanche_type", widget: "select", options: ["Repos", "Endurance", "Tempo", "Intervalles", "SL", "SL Allure", "Renfo", "Course", "Vélo", "Marche", "Natation"], default: "Repos"}
                   - {label: "Dimanche S1 (Titre)", name: "dimanche_titre", widget: "string", required: false}
                   - {label: "Dimanche S1 (KM)", name: "dimanche_km", widget: "number", value_type: "float", required: false}
-                  - {label: "Dimanche S2 (Type)", name: "dimanche_type_2", widget: "select", options: ["Aucun", "Marche", "Repos", "Endurance", "Tempo", "Intervalles", "SL", "SL Allure", "Renfo", "Course", "Vélo"], default: "Aucun", required: false}
+                  - {label: "Dimanche S2 (Type)", name: "dimanche_type_2", widget: "select", options: ["Aucun", "Repos", "Endurance", "Tempo", "Intervalles", "SL", "SL Allure", "Renfo", "Course", "Vélo", "Marche", "Natation"], default: "Aucun", required: false}
                   - {label: "Dimanche S2 (Titre)", name: "dimanche_titre_2", widget: "string", required: false}
                   - {label: "Dimanche S2 (KM)", name: "dimanche_km_2", widget: "number", value_type: "float", required: false}
