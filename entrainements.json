@@ -26,6 +26,168 @@
       ]
     },
     {
+      "nom_prepa": "Transition Printemps-Été",
+      "annee": "2026",
+      "liste_semaines": [
+        {
+          "titre": "S1",
+          "dates": "11/05 - 17/05",
+          "total_km": 42.96,
+          "lundi_type": "Repos",
+          "mardi_type": "Repos",
+          "mercredi_type": "Intervalles", "mercredi_km": 9.75,
+          "jeudi_type": "Repos",
+          "vendredi_type": "Endurance", "vendredi_km": 10.78,
+          "samedi_type": "Tempo", "samedi_km": 9.10,
+          "dimanche_type": "Endurance", "dimanche_km": 13.33
+        },
+        {
+          "titre": "S2",
+          "dates": "18/05 - 24/05",
+          "total_km": 24.65,
+          "lundi_type": "Repos",
+          "mardi_type": "Repos",
+          "mercredi_type": "Intervalles", "mercredi_km": 3.48, "mercredi_type_2": "Renfo", "mercredi_km_2": 0,
+          "jeudi_type": "Repos",
+          "vendredi_type": "Endurance", "vendredi_km": 4.39,
+          "samedi_type": "Endurance", "samedi_km": 6.06,
+          "dimanche_type": "Tempo", "dimanche_km": 10.72
+        },
+        {
+          "titre": "S3",
+          "dates": "25/05 - 31/05",
+          "total_km": 42.46,
+          "lundi_type": "Endurance", "lundi_km": 6.44,
+          "mardi_type": "Endurance", "mardi_km": 8.15,
+          "mercredi_type": "Repos",
+          "jeudi_type": "Tempo", "jeudi_km": 8.20,
+          "vendredi_type": "Repos",
+          "samedi_type": "Endurance", "samedi_km": 6.42,
+          "dimanche_type": "Course", "dimanche_titre": "Trail de Thoiry", "dimanche_km": 13.25
+        },
+        {
+          "titre": "S4",
+          "dates": "01/06 - 07/06",
+          "total_km": 19.61,
+          "lundi_type": "Repos",
+          "mardi_type": "Repos",
+          "mercredi_type": "Intervalles", "mercredi_km": 3.31,
+          "jeudi_type": "Tempo", "jeudi_km": 9.63,
+          "vendredi_type": "Repos",
+          "samedi_type": "Repos",
+          "dimanche_type": "Endurance", "dimanche_km": 6.67
+        },
+        {
+          "titre": "S5",
+          "dates": "08/06 - 14/06",
+          "total_km": 12.60,
+          "lundi_type": "Repos",
+          "mardi_type": "Repos",
+          "mercredi_type": "Intervalles", "mercredi_km": 5.00,
+          "jeudi_type": "Repos",
+          "vendredi_type": "Repos",
+          "samedi_type": "Tempo", "samedi_km": 7.60,
+          "dimanche_type": "Repos"
+        },
+        {
+          "titre": "S6",
+          "dates": "15/06 - 21/06",
+          "total_km": 5.19,
+          "lundi_type": "Repos",
+          "mardi_type": "Repos",
+          "mercredi_type": "Repos",
+          "jeudi_type": "Repos",
+          "vendredi_type": "Repos",
+          "samedi_type": "Repos",
+          "dimanche_type": "Tempo", "dimanche_km": 5.19
+        },
+        {
+          "titre": "S7",
+          "dates": "22/06 - 28/06",
+          "total_km": 18.51,
+          "lundi_type": "Repos",
+          "mardi_type": "Repos",
+          "mercredi_type": "Tempo", "mercredi_km": 6.09,
+          "jeudi_type": "Repos",
+          "vendredi_type": "Endurance", "vendredi_km": 6.00,
+          "samedi_type": "Repos",
+          "dimanche_type": "Tempo", "dimanche_km": 6.42
+        },
+        {
+          "titre": "S8",
+          "dates": "29/06 - 05/07",
+          "total_km": 27.03,
+          "lundi_type": "Repos",
+          "mardi_type": "Repos",
+          "mercredi_type": "Intervalles", "mercredi_km": 4.18,
+          "jeudi_type": "Repos",
+          "vendredi_type": "Endurance", "vendredi_km": 7.03,
+          "samedi_type": "Repos",
+          "dimanche_type": "Tempo", "dimanche_km": 15.82
+        },
+        {
+          "titre": "S9",
+          "dates": "06/07 - 12/07",
+          "total_km": 13.78,
+          "lundi_type": "Repos",
+          "mardi_type": "Repos",
+          "mercredi_type": "Intervalles", "mercredi_km": 2.10,
+          "jeudi_type": "Repos",
+          "vendredi_type": "Endurance", "vendredi_km": 5.55,
+          "samedi_type": "Repos",
+          "dimanche_type": "Intervalles", "dimanche_km": 6.13
+        },
+        {
+          "titre": "S10",
+          "dates": "13/07 - 19/07",
+          "total_km": 7.18,
+          "lundi_type": "Repos",
+          "mardi_type": "Repos",
+          "mercredi_type": "Repos",
+          "jeudi_type": "Repos",
+          "vendredi_type": "Endurance", "vendredi_km": 7.18,
+          "samedi_type": "Repos",
+          "dimanche_type": "Repos"
+        },
+        {
+          "titre": "S11",
+          "dates": "20/07 - 26/07",
+          "total_km": 28.42,
+          "lundi_type": "Repos",
+          "mardi_type": "Endurance", "mardi_km": 10.42,
+          "mercredi_type": "Endurance", "mercredi_km": 7.00,
+          "jeudi_type": "Tempo", "jeudi_km": 11.00,
+          "vendredi_type": "Repos",
+          "samedi_type": "Repos",
+          "dimanche_type": "Repos"
+        },
+        {
+          "titre": "S12",
+          "dates": "27/07 - 02/08",
+          "total_km": 9.10,
+          "lundi_type": "Repos",
+          "mardi_type": "Repos",
+          "mercredi_type": "Repos",
+          "jeudi_type": "Repos",
+          "vendredi_type": "Repos",
+          "samedi_type": "Intervalles", "samedi_km": 2.31,
+          "dimanche_type": "Natation", "dimanche_km": 0.50, "dimanche_type_2": "Endurance", "dimanche_km_2": 6.29
+        },
+        {
+          "titre": "S13",
+          "dates": "03/08 - 09/08",
+          "total_km": 39.75,
+          "lundi_type": "Natation", "lundi_km": 1.00,
+          "mardi_type": "Repos",
+          "mercredi_type": "Repos",
+          "jeudi_type": "Tempo", "jeudi_km": 22.33,
+          "vendredi_type": "Repos",
+          "samedi_type": "Endurance", "samedi_km": 7.02, "samedi_type_2": "Natation", "samedi_km_2": 1.00,
+          "dimanche_type": "Endurance", "dimanche_km": 8.40
+        }
+      ]
+    },
+    {
       "nom_prepa": "10km de Genève",
       "annee": "2026",
       "liste_semaines": [
