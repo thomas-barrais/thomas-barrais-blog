@@ -1127,6 +1127,282 @@
           "dimanche_type": "Trail", "dimanche_km": 7.61
         }
       ]
+    },
+    {
+      "nom_prepa": "Les 40 Bosses",
+      "annee": "2024",
+      "liste_semaines": [
+        {
+          "titre": "S1",
+          "dates": "26/08 - 01/09",
+          "total_km": 38.24,
+          "lundi_type": "Repos",
+          "mardi_type": "Vélo", "mardi_km": 34.83,
+          "mercredi_type": "Endurance", "mercredi_km": 6.07,
+          "jeudi_type": "Endurance", "jeudi_km": 7.80,
+          "vendredi_type": "Endurance", "vendredi_km": 4.73,
+          "samedi_type": "Trail", "samedi_km": 7.14,
+          "dimanche_type": "Trail", "dimanche_km": 12.50
+        },
+        {
+          "titre": "S2",
+          "dates": "02/09 - 08/09",
+          "total_km": 47.52,
+          "lundi_type": "Renfo", "lundi_km": 0,
+          "mardi_type": "Intervalles", "mardi_titre": "3 x 3 x 500m", "mardi_km": 11.74,
+          "mercredi_type": "Endurance", "mercredi_km": 4.29,
+          "jeudi_type": "Renfo", "jeudi_km": 0, "jeudi_type_2": "Endurance", "jeudi_km_2": 2.89,
+          "vendredi_type": "Renfo", "vendredi_km": 0,
+          "samedi_type": "Trail", "samedi_km": 8.08,
+          "dimanche_type": "Trail", "dimanche_km": 20.52
+        },
+        {
+          "titre": "S3",
+          "dates": "09/09 - 15/09",
+          "total_km": 38.18,
+          "lundi_type": "Repos",
+          "mardi_type": "Renfo", "mardi_km": 0,
+          "mercredi_type": "Renfo", "mercredi_km": 0, "mercredi_type_2": "Endurance", "mercredi_km_2": 3.20,
+          "jeudi_type": "Endurance", "jeudi_km": 4.97,
+          "vendredi_type": "Endurance", "vendredi_km": 8.75,
+          "samedi_type": "Endurance", "samedi_km": 4.48,
+          "dimanche_type": "Course", "dimanche_titre": "L'huiss'run 2024", "dimanche_km": 16.78
+        },
+        {
+          "titre": "S4",
+          "dates": "16/09 - 22/09",
+          "total_km": 53.19,
+          "lundi_type": "Repos",
+          "mardi_type": "Intervalles", "mardi_titre": "200/400/800/1600/800/400/200", "mardi_km": 11.50,
+          "mercredi_type": "Endurance", "mercredi_km": 7.37,
+          "jeudi_type": "Endurance", "jeudi_km": 10.01,
+          "vendredi_type": "Endurance", "vendredi_km": 7.66,
+          "samedi_type": "Endurance", "samedi_km": 4.31,
+          "dimanche_type": "Trail", "dimanche_km": 12.34
+        },
+        {
+          "titre": "S5",
+          "dates": "23/09 - 29/09",
+          "total_km": 50.52,
+          "lundi_type": "Repos",
+          "mardi_type": "Endurance", "mardi_km": 16.22,
+          "mercredi_type": "Endurance", "mercredi_km": 5.00,
+          "jeudi_type": "Endurance", "jeudi_km": 6.63,
+          "vendredi_type": "Repos",
+          "samedi_type": "Course", "samedi_titre": "Bagnoles Normandie Trail", "samedi_km": 22.67,
+          "dimanche_type": "Repos"
+        },
+        {
+          "titre": "S6",
+          "dates": "30/09 - 06/10",
+          "total_km": 49.72,
+          "lundi_type": "Repos",
+          "mardi_type": "Endurance", "mardi_km": 5.31,
+          "mercredi_type": "Endurance", "mercredi_km": 2.69,
+          "jeudi_type": "Endurance", "jeudi_km": 2.28,
+          "vendredi_type": "Renfo", "vendredi_km": 0,
+          "samedi_type": "Trail", "samedi_km": 12.16,
+          "dimanche_type": "Trail", "dimanche_km": 27.28
+        },
+        {
+          "titre": "S7 (Prépa 20km)",
+          "dates": "07/10 - 13/10",
+          "total_km": 40.69,
+          "lundi_type": "Repos",
+          "mardi_type": "Repos",
+          "mercredi_type": "Endurance", "mercredi_km": 3.00,
+          "jeudi_type": "Endurance", "jeudi_km": 7.60,
+          "vendredi_type": "Endurance", "vendredi_km": 10.00,
+          "samedi_type": "Repos",
+          "dimanche_type": "Course", "dimanche_titre": "20km de Paris", "dimanche_km": 20.09
+        },
+        {
+          "titre": "S8 (La cheville fait crack)",
+          "dates": "14/10 - 20/10",
+          "total_km": 37.09,
+          "lundi_type": "Repos",
+          "mardi_type": "Endurance", "mardi_km": 6.81,
+          "mercredi_type": "Endurance", "mercredi_km": 5.08,
+          "jeudi_type": "Endurance", "jeudi_km": 4.89,
+          "vendredi_type": "Endurance", "vendredi_km": 7.37,
+          "samedi_type": "Endurance", "samedi_km": 4.63,
+          "dimanche_type": "Trail", "dimanche_titre": "La cheville a fait crack", "dimanche_km": 8.31
+        },
+        {
+          "titre": "S9 (Convalescence)",
+          "dates": "21/10 - 27/10",
+          "total_km": 25.26,
+          "lundi_type": "Repos",
+          "mardi_type": "Endurance", "mardi_titre": "On part sur 1 semaine d'arrêt", "mardi_km": 1.62,
+          "mercredi_type": "Vélo", "mercredi_km": 21.36,
+          "jeudi_type": "Vélo", "jeudi_km": 50.00,
+          "vendredi_type": "Endurance", "vendredi_km": 7.61,
+          "samedi_type": "Endurance", "samedi_km": 6.00,
+          "dimanche_type": "Trail", "dimanche_km": 5.79, "dimanche_type_2": "Endurance", "dimanche_km_2": 4.24
+        },
+        {
+          "titre": "S10",
+          "dates": "28/10 - 03/11",
+          "total_km": 67.87,
+          "lundi_type": "Endurance", "lundi_km": 6.74,
+          "mardi_type": "Endurance", "mardi_km": 8.00,
+          "mercredi_type": "Endurance", "mercredi_km": 4.00,
+          "jeudi_type": "Endurance", "jeudi_km": 6.36,
+          "vendredi_type": "Repos",
+          "samedi_type": "Trail", "samedi_km": 15.15,
+          "dimanche_type": "Trail", "dimanche_km": 27.62
+        },
+        {
+          "titre": "S11",
+          "dates": "04/11 - 10/11",
+          "total_km": 41.15,
+          "lundi_type": "Repos",
+          "mardi_type": "Repos",
+          "mercredi_type": "Endurance", "mercredi_km": 3.69,
+          "jeudi_type": "Endurance", "jeudi_km": 9.09,
+          "vendredi_type": "Endurance", "vendredi_km": 7.49,
+          "samedi_type": "Endurance", "samedi_km": 7.07, "samedi_type_2": "Endurance", "samedi_km_2": 5.00,
+          "dimanche_type": "Trail", "dimanche_km": 8.81
+        },
+        {
+          "titre": "S12 (Week-end Choc)",
+          "dates": "11/11 - 17/11",
+          "total_km": 60.45,
+          "lundi_type": "Vélo", "lundi_km": 36.19,
+          "mardi_type": "Endurance", "mardi_km": 6.68,
+          "mercredi_type": "Endurance", "mercredi_km": 7.37,
+          "jeudi_type": "Endurance", "jeudi_km": 8.25,
+          "vendredi_type": "Endurance", "vendredi_km": 4.87,
+          "samedi_type": "Course", "samedi_titre": "Trail des Châtaignes (Nuit)", "samedi_km": 23.32,
+          "dimanche_type": "Course", "dimanche_titre": "10km Hoka Paris Centre", "dimanche_km": 9.96
+        },
+        {
+          "titre": "S13",
+          "dates": "18/11 - 24/11",
+          "total_km": 36.98,
+          "lundi_type": "Repos",
+          "mardi_type": "Endurance", "mardi_km": 9.00,
+          "mercredi_type": "Endurance", "mercredi_km": 7.86,
+          "jeudi_type": "Endurance", "jeudi_km": 8.00,
+          "vendredi_type": "Repos",
+          "samedi_type": "Trail", "samedi_km": 5.00,
+          "dimanche_type": "Trail", "dimanche_km": 7.12
+        },
+        {
+          "titre": "S14",
+          "dates": "25/11 - 01/12",
+          "total_km": 60.79,
+          "lundi_type": "Repos",
+          "mardi_type": "Endurance", "mardi_km": 7.36,
+          "mercredi_type": "Endurance", "mercredi_km": 7.51,
+          "jeudi_type": "Repos",
+          "vendredi_type": "Repos",
+          "samedi_type": "Repos",
+          "dimanche_type": "Course", "dimanche_titre": "Les 40 Bosses (45km)", "dimanche_km": 45.92
+        }
+      ]
+    },
+    {
+      "nom_prepa": "Semi Cancale - Saint-Malo",
+      "annee": "2024",
+      "liste_semaines": [
+        {
+          "titre": "S1",
+          "dates": "01/07 - 07/07",
+          "total_km": 19.65,
+          "lundi_type": "Renfo", "lundi_km": 0,
+          "mardi_type": "Endurance", "mardi_km": 6.17,
+          "mercredi_type": "Endurance", "mercredi_km": 4.69,
+          "jeudi_type": "Endurance", "jeudi_km": 8.79,
+          "vendredi_type": "Vélo", "vendredi_km": 35.82,
+          "samedi_type": "Repos",
+          "dimanche_type": "Renfo", "dimanche_km": 0
+        },
+        {
+          "titre": "S2",
+          "dates": "08/07 - 14/07",
+          "total_km": 47.46,
+          "lundi_type": "Trail", "lundi_km": 6.69,
+          "mardi_type": "Endurance", "mardi_km": 8.22,
+          "mercredi_type": "Endurance", "mercredi_km": 7.61,
+          "jeudi_type": "Repos",
+          "vendredi_type": "Endurance", "vendredi_km": 5.00, "vendredi_type_2": "Vélo", "vendredi_km_2": 11.65,
+          "samedi_type": "Trail", "samedi_km": 12.43,
+          "dimanche_type": "Endurance", "dimanche_km": 7.51
+        },
+        {
+          "titre": "S3",
+          "dates": "15/07 - 21/07",
+          "total_km": 72.06,
+          "lundi_type": "Intervalles", "lundi_titre": "VMA", "lundi_km": 10.32,
+          "mardi_type": "Endurance", "mardi_km": 7.18, "mardi_type_2": "Renfo", "mardi_km_2": 0,
+          "mercredi_type": "Endurance", "mercredi_km": 5.58,
+          "jeudi_type": "Tempo", "jeudi_titre": "Seuil", "jeudi_km": 15.39,
+          "vendredi_type": "Renfo", "vendredi_km": 0, "vendredi_type_2": "Endurance", "vendredi_km_2": 6.58,
+          "samedi_type": "Trail", "samedi_km": 12.00,
+          "dimanche_type": "Endurance", "dimanche_km": 15.01
+        },
+        {
+          "titre": "S4",
+          "dates": "22/07 - 28/07",
+          "total_km": 73.85,
+          "lundi_type": "Tempo", "lundi_km": 12.00,
+          "mardi_type": "Endurance", "mardi_titre": "Récup active", "mardi_km": 7.07, "mardi_type_2": "Renfo", "mardi_km_2": 0,
+          "mercredi_type": "Endurance", "mercredi_km": 8.78,
+          "jeudi_type": "Endurance", "jeudi_titre": "Oh la séance de cheval", "jeudi_km": 18.75,
+          "vendredi_type": "Endurance", "vendredi_km": 8.53, "vendredi_type_2": "Renfo", "vendredi_km_2": 0,
+          "samedi_type": "Trail", "samedi_km": 11.37,
+          "dimanche_type": "Endurance", "dimanche_km": 7.35
+        },
+        {
+          "titre": "S5",
+          "dates": "29/07 - 04/08",
+          "total_km": 91.39,
+          "lundi_type": "Endurance", "lundi_km": 5.07, "lundi_type_2": "Endurance", "lundi_km_2": 11.01,
+          "mardi_type": "Endurance", "mardi_km": 7.44, "mardi_type_2": "Endurance", "mardi_km_2": 4.32,
+          "mercredi_type": "Endurance", "mercredi_km": 6.01,
+          "jeudi_type": "Intervalles", "jeudi_titre": "4 x 2000m r2’", "jeudi_km": 15.88,
+          "vendredi_type": "Endurance", "vendredi_km": 7.33, "vendredi_type_2": "Renfo", "vendredi_km_2": 0,
+          "samedi_type": "Trail", "samedi_km": 15.34, "samedi_type_2": "Endurance", "samedi_km_2": 2.96,
+          "dimanche_type": "Endurance", "dimanche_km": 7.32, "dimanche_type_2": "Trail", "dimanche_km_2": 8.71
+        },
+        {
+          "titre": "S6",
+          "dates": "05/08 - 11/08",
+          "total_km": 50.93,
+          "lundi_type": "Intervalles", "lundi_titre": "3 x 3 x 500m", "lundi_km": 11.09,
+          "mardi_type": "Endurance", "mardi_km": 7.48, "mardi_type_2": "Endurance", "mardi_km_2": 4.34,
+          "mercredi_type": "Endurance", "mercredi_km": 4.30,
+          "jeudi_type": "Endurance", "jeudi_km": 3.55,
+          "vendredi_type": "Repos",
+          "samedi_type": "Trail", "samedi_km": 9.01,
+          "dimanche_type": "Marche", "dimanche_km": 5.39, "dimanche_type_2": "Trail", "dimanche_km_2": 11.26
+        },
+        {
+          "titre": "S7",
+          "dates": "12/08 - 18/08",
+          "total_km": 24.52,
+          "lundi_type": "Repos",
+          "mardi_type": "Repos",
+          "mercredi_type": "Endurance", "mercredi_km": 5.32,
+          "jeudi_type": "Endurance", "jeudi_km": 7.37,
+          "vendredi_type": "Repos",
+          "samedi_type": "Endurance", "samedi_km": 3.58,
+          "dimanche_type": "Trail", "dimanche_km": 8.25
+        },
+        {
+          "titre": "S8 (Course)",
+          "dates": "19/08 - 25/08",
+          "total_km": 43.19,
+          "lundi_type": "Repos",
+          "mardi_type": "Endurance", "mardi_km": 8.55,
+          "mercredi_type": "Endurance", "mercredi_km": 5.58,
+          "jeudi_type": "Endurance", "jeudi_km": 7.85,
+          "vendredi_type": "Repos",
+          "samedi_type": "Repos",
+          "dimanche_type": "Course", "dimanche_titre": "Semi Cancale - St Malo", "dimanche_km": 21.21
+        }
+      ]
     }
   ]
 }
