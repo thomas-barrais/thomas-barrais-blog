@@ -134,15 +134,17 @@
           "lundi_titre_2": "",
           "titre": "S7",
           "jeudi_titre": "4 x 6' @4:25 r3'",
+          "dimanche_km": 12.5,
           "mardi_titre": "4 x 8' @4:22 r2'30",
+          "samedi_km": 7,
           "mardi_type": "Tempo",
           "mercredi_type": "Endurance",
           "jeudi_type": "Tempo",
           "vendredi_type": "Repos",
           "total_km": 41,
           "mardi_km": 13.01,
-          "samedi_titre": "7",
-          "dimanche_titre": "12.5"
+          "samedi_titre": "",
+          "dimanche_titre": ""
         }
       ]
     },
