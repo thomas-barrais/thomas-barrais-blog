@@ -145,6 +145,28 @@
           "mardi_km": 13.01,
           "samedi_titre": "",
           "dimanche_titre": ""
+        },
+        {
+          "mercredi_km": 7.33,
+          "dimanche_type_2": "Aucun",
+          "samedi_type_2": "Aucun",
+          "lundi_type_2": "Aucun",
+          "dates": "28/09 - 4/10",
+          "mardi_type_2": "Aucun",
+          "mercredi_type_2": "Aucun",
+          "jeudi_type_2": "Aucun",
+          "dimanche_type": "Repos",
+          "samedi_type": "Repos",
+          "vendredi_type_2": "Aucun",
+          "lundi_type": "Repos",
+          "titre": "S8",
+          "mardi_titre": "4x10' @4:23 r3'",
+          "mardi_type": "Tempo",
+          "mercredi_type": "Endurance",
+          "jeudi_type": "Repos",
+          "vendredi_type": "Repos",
+          "total_km": 51,
+          "mardi_km": 12.33
         }
       ]
     },
