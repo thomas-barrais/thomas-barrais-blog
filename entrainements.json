@@ -97,7 +97,7 @@
         },
         {
           "mercredi_km": 7.16,
-          "jeudi_km": 3.41,
+          "jeudi_km": 9.41,
           "dates": "14/09 - 20/09",
           "dimanche_type": "SL Allure",
           "samedi_type": "Endurance",
@@ -112,7 +112,7 @@
           "mercredi_type": "Endurance",
           "jeudi_type": "Intervalles",
           "vendredi_type": "Repos",
-          "total_km": 43.38,
+          "total_km": 49.91,
           "mardi_km": 11.56,
           "dimanche_titre": "25’ @5:10"
         },
@@ -141,7 +141,7 @@
           "mercredi_type": "Endurance",
           "jeudi_type": "Tempo",
           "vendredi_type": "Repos",
-          "total_km": 41,
+          "total_km": 51.29,
           "mardi_km": 13.01,
           "samedi_titre": "",
           "dimanche_titre": ""
@@ -169,7 +169,7 @@
           "mercredi_type": "Endurance",
           "jeudi_type": "Repos",
           "vendredi_type": "Intervalles",
-          "total_km": 51,
+          "total_km": 53,
           "mardi_km": 12.33,
           "dimanche_titre": "10' @5:17 15' @5:04 3' @4:33"
         }
