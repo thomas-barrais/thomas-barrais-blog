@@ -172,6 +172,33 @@
           "total_km": 52.62,
           "mardi_km": 12.33,
           "dimanche_titre": "10' @5:17 15' @5:04 3' @4:33"
+        },
+        {
+          "mercredi_km": 6.88,
+          "dimanche_type_2": "Aucun",
+          "samedi_type_2": "Aucun",
+          "jeudi_km": 12.13,
+          "lundi_type_2": "Aucun",
+          "dates": "5/10 - 11/10",
+          "mardi_type_2": "Aucun",
+          "mercredi_type_2": "Aucun",
+          "jeudi_type_2": "Aucun",
+          "dimanche_type": "SL Allure",
+          "samedi_type": "Endurance",
+          "vendredi_type_2": "Aucun",
+          "lundi_type": "Repos",
+          "titre": "S9",
+          "jeudi_titre": "7x4' @4:15 r2'",
+          "dimanche_km": 16.32,
+          "mardi_titre": "2x30\" + 4' @4:00 r2' + 5x5' @4:20 r1'30",
+          "samedi_km": 7.5,
+          "mardi_type": "Tempo",
+          "mercredi_type": "Endurance",
+          "jeudi_type": "Intervalles",
+          "vendredi_type": "Repos",
+          "total_km": 54.99,
+          "mardi_km": 12.16,
+          "dimanche_titre": "3x(8' @5:00 + 2' @4:30 r2')"
         }
       ]
     },
