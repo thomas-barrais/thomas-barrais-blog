@@ -199,6 +199,33 @@
           "total_km": 54.99,
           "mardi_km": 12.16,
           "dimanche_titre": "3x(8' @5:00 + 2' @4:30 r2')"
+        },
+        {
+          "mercredi_km": 6.83,
+          "dimanche_type_2": "Aucun",
+          "samedi_type_2": "Aucun",
+          "jeudi_km": 6.17,
+          "lundi_type_2": "Aucun",
+          "dates": "12/10 - 18/10",
+          "mardi_type_2": "Aucun",
+          "mercredi_type_2": "Aucun",
+          "jeudi_type_2": "Aucun",
+          "dimanche_type": "SL",
+          "samedi_type": "Endurance",
+          "vendredi_type_2": "Aucun",
+          "lundi_type": "Repos",
+          "titre": "S10",
+          "jeudi_titre": "6x15\" r45\"",
+          "dimanche_km": 12.53,
+          "mardi_titre": "4x(1' @5:0 1' @4:0 r2')",
+          "samedi_km": 4.7,
+          "mardi_type": "Tempo",
+          "mercredi_type": "Endurance",
+          "jeudi_type": "Endurance",
+          "vendredi_type": "Repos",
+          "total_km": 37.45,
+          "mardi_km": 7.22,
+          "dimanche_titre": ""
         }
       ]
     },
